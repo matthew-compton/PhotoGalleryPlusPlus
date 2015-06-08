@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/ambergleam/.gradle/caches/modules-2/files-2.1/com.squareup/javawriter/2.3.0/4b290e394ea3109be5c0b7f08ff75de089125122/javawriter-2.3.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="4b290e394ea3109be5c0b7f08ff75de089125122">
+        <dex dex="/Users/ambergleam/Code/general/studio-workspace/PhotoGallery/app/build/intermediates/pre-dexed/debug/javawriter-2.3.0-7fadc2cfb8074654cb134ffd52627eb10f4f8866.jar" />
+    </item>
+    <item
+        jar="/Users/ambergleam/Code/general/studio-workspace/PhotoGallery/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/libs/internal_impl-22.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
+        <dex dex="/Users/ambergleam/Code/general/studio-workspace/PhotoGallery/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.0-11433fcd5bde1408f0dcd3821ec038f25fb6bc38.jar" />
+    </item>
+    <item
+        jar="/Applications/android-sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.0/support-annotations-22.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
+        <dex dex="/Users/ambergleam/Code/general/studio-workspace/PhotoGallery/app/build/intermediates/pre-dexed/debug/support-annotations-22.2.0-a4ac619056ec80f97da926e8836243055e42e612.jar" />
+    </item>
+    <item
+        jar="/Users/ambergleam/.gradle/caches/modules-2/files-2.1/com.squareup.dagger/dagger-compiler/1.2.0/22633bb84433e03d345a83e7b0c08c66768be30/dagger-compiler-1.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="022633bb84433e03d345a83e7b0c08c66768be30">
+        <dex dex="/Users/ambergleam/Code/general/studio-workspace/PhotoGallery/app/build/intermediates/pre-dexed/debug/dagger-compiler-1.2.0-82cab586e0d5b2468902f1cbc827580ebe86f599.jar" />
+    </item>
+    <item
+        jar="/Users/ambergleam/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="6975da39a7040257bd51d21a231b76c915872d38">
+        <dex dex="/Users/ambergleam/Code/general/studio-workspace/PhotoGallery/app/build/intermediates/pre-dexed/debug/javax.inject-1-2fa0bfa9b0d211337d1340e143c79abcdacda901.jar" />
+    </item>
+    <item
+        jar="/Users/ambergleam/Code/general/studio-workspace/PhotoGallery/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
+        <dex dex="/Users/ambergleam/Code/general/studio-workspace/PhotoGallery/app/build/intermediates/pre-dexed/debug/classes-d8a52150d71434b9b1c542fd6f622a98c378bf3d.jar" />
+    </item>
+    <item
+        jar="/Users/ambergleam/.gradle/caches/modules-2/files-2.1/com.squareup.dagger/dagger/1.2.0/adec009bc3b39d0cbd7ec96ef6014667a3a8f147/dagger-1.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="adec009bc3b39d0cbd7ec96ef6014667a3a8f147">
+        <dex dex="/Users/ambergleam/Code/general/studio-workspace/PhotoGallery/app/build/intermediates/pre-dexed/debug/dagger-1.2.0-3ef5afa75a7aabcf1f60f62469d845ea0214272d.jar" />
+    </item>
+    <item
+        jar="/Users/ambergleam/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/15.0/ed727a8d9f247e2050281cb083f1c77b09dcb5cd/guava-15.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="ed727a8d9f247e2050281cb083f1c77b09dcb5cd">
+        <dex dex="/Users/ambergleam/Code/general/studio-workspace/PhotoGallery/app/build/intermediates/pre-dexed/debug/guava-15.0-bee27f1ab44bb63794bead34f00f8cc5f8abc15f.jar" />
+    </item>
+
+</items>

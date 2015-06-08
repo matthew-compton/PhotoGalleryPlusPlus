@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/Users/ambergleam/Code/general/studio-workspace/PhotoGallery/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.0.0/res/values-tl/values.xml -->
+    <eat-comment/>
+    <string name="messenger_send_button_text">Ipadala</string>
+</resources>
