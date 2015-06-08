@@ -1,7 +1,5 @@
 package com.bignerdranch.android.photogallery;
 
-import java.util.ArrayList;
-
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.SearchManager;
@@ -27,6 +25,10 @@ import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.SearchView;
+
+import com.facebook.appevents.AppEventsLogger;
+
+import java.util.ArrayList;
 
 public class PhotoGalleryFragment extends VisibleFragment {
     GridView mGridView;
@@ -65,7 +67,7 @@ public class PhotoGalleryFragment extends VisibleFragment {
                                     long id) {
                 GalleryItem item = mItems.get(pos);
 
-                Uri photoPageUri = Uri.parse(item.getPhotoPageUrl());
+                Uri photoPageUri = Uri.parse(item.getUrl());
                 Intent i = new Intent(getActivity(), PhotoPageActivity.class);
                 i.setData(photoPageUri);
 
@@ -86,6 +88,22 @@ public class PhotoGalleryFragment extends VisibleFragment {
     public void onDestroyView() {
         super.onDestroyView();
         mThumbnailThread.clearQueue();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        // Logs 'install' and 'app activate' App Events.
+        AppEventsLogger.activateApp(getActivity());
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        // Logs 'app deactivate' App Event.
+        AppEventsLogger.deactivateApp(getActivity());
     }
 
     @Override

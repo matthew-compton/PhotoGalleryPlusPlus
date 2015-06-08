@@ -2,112 +2,122 @@
 manifest
 ADDED from AndroidManifest.xml:1:1
 	package
-		ADDED from AndroidManifest.xml:2:3
+		ADDED from AndroidManifest.xml:2:5
 		INJECTED from AndroidManifest.xml:0:0
 		INJECTED from AndroidManifest.xml:0:0
 	android:versionName
-		ADDED from AndroidManifest.xml:4:3
+		ADDED from AndroidManifest.xml:5:5
 		INJECTED from AndroidManifest.xml:0:0
 		INJECTED from AndroidManifest.xml:0:0
 	android:versionCode
-		ADDED from AndroidManifest.xml:3:3
+		ADDED from AndroidManifest.xml:4:5
 		INJECTED from AndroidManifest.xml:0:0
 		INJECTED from AndroidManifest.xml:0:0
 	xmlns:android
-		ADDED from AndroidManifest.xml:1:11
+		ADDED from AndroidManifest.xml:3:5
 uses-sdk
-ADDED from AndroidManifest.xml:6:3
+ADDED from AndroidManifest.xml:7:5
 MERGED from com.android.support:support-v4:22.2.0:20:5
 MERGED from com.facebook.android:facebook-android-sdk:4.0.0:24:5
 MERGED from com.android.support:support-v4:22.2.0:20:5
 	android:targetSdkVersion
-		ADDED from AndroidManifest.xml:8:5
+		ADDED from AndroidManifest.xml:9:9
 		INJECTED from AndroidManifest.xml:0:0
 		INJECTED from AndroidManifest.xml:0:0
 	android:minSdkVersion
-		ADDED from AndroidManifest.xml:7:5
+		ADDED from AndroidManifest.xml:8:9
 		INJECTED from AndroidManifest.xml:0:0
 		INJECTED from AndroidManifest.xml:0:0
 permission#com.bignerdranch.android.photogallery.PRIVATE
-ADDED from AndroidManifest.xml:10:3
+ADDED from AndroidManifest.xml:11:5
 	android:protectionLevel
-		ADDED from AndroidManifest.xml:11:5
+		ADDED from AndroidManifest.xml:13:9
 	android:name
-		ADDED from AndroidManifest.xml:10:15
+		ADDED from AndroidManifest.xml:12:9
 uses-permission#android.permission.INTERNET
-ADDED from AndroidManifest.xml:13:3
+ADDED from AndroidManifest.xml:15:5
 	android:name
-		ADDED from AndroidManifest.xml:13:20
+		ADDED from AndroidManifest.xml:15:22
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from AndroidManifest.xml:14:3
+ADDED from AndroidManifest.xml:16:5
 	android:name
-		ADDED from AndroidManifest.xml:14:20
+		ADDED from AndroidManifest.xml:16:22
 uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
-ADDED from AndroidManifest.xml:15:3
+ADDED from AndroidManifest.xml:17:5
 	android:name
-		ADDED from AndroidManifest.xml:15:20
+		ADDED from AndroidManifest.xml:17:22
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from AndroidManifest.xml:18:5
+	android:name
+		ADDED from AndroidManifest.xml:18:22
 uses-permission#com.bignerdranch.android.photogallery.PRIVATE
-ADDED from AndroidManifest.xml:16:3
+ADDED from AndroidManifest.xml:19:5
 	android:name
-		ADDED from AndroidManifest.xml:16:20
+		ADDED from AndroidManifest.xml:19:22
 application
-ADDED from AndroidManifest.xml:18:3
+ADDED from AndroidManifest.xml:21:5
 MERGED from com.android.support:support-v4:22.2.0:22:5
 MERGED from com.facebook.android:facebook-android-sdk:4.0.0:28:5
 MERGED from com.android.support:support-v4:22.2.0:22:5
 	android:label
-		ADDED from AndroidManifest.xml:20:5
+		ADDED from AndroidManifest.xml:23:9
 	android:icon
-		ADDED from AndroidManifest.xml:19:5
+		ADDED from AndroidManifest.xml:22:9
 	android:theme
-		ADDED from AndroidManifest.xml:21:5
+		ADDED from AndroidManifest.xml:24:9
+meta-data#com.facebook.sdk.ApplicationId
+ADDED from AndroidManifest.xml:26:9
+	android:value
+		ADDED from AndroidManifest.xml:28:13
+	android:name
+		ADDED from AndroidManifest.xml:27:13
 activity#com.bignerdranch.android.photogallery.PhotoGalleryActivity
-ADDED from AndroidManifest.xml:22:5
+ADDED from AndroidManifest.xml:30:9
 	android:label
-		ADDED from AndroidManifest.xml:25:7
+		ADDED from AndroidManifest.xml:32:13
 	android:launchMode
-		ADDED from AndroidManifest.xml:24:7
+		ADDED from AndroidManifest.xml:33:13
 	android:name
-		ADDED from AndroidManifest.xml:23:7
+		ADDED from AndroidManifest.xml:31:13
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from AndroidManifest.xml:26:7
+ADDED from AndroidManifest.xml:34:13
 action#android.intent.action.MAIN
-ADDED from AndroidManifest.xml:27:9
+ADDED from AndroidManifest.xml:35:17
 	android:name
-		ADDED from AndroidManifest.xml:27:17
+		ADDED from AndroidManifest.xml:35:25
 category#android.intent.category.LAUNCHER
-ADDED from AndroidManifest.xml:29:9
+ADDED from AndroidManifest.xml:37:17
 	android:name
-		ADDED from AndroidManifest.xml:29:19
+		ADDED from AndroidManifest.xml:37:27
 intent-filter#android.intent.action.SEARCH
-ADDED from AndroidManifest.xml:31:7
+ADDED from AndroidManifest.xml:39:13
 action#android.intent.action.SEARCH
-ADDED from AndroidManifest.xml:32:9
+ADDED from AndroidManifest.xml:40:17
 	android:name
-		ADDED from AndroidManifest.xml:32:17
+		ADDED from AndroidManifest.xml:40:25
 meta-data#android.app.searchable
-ADDED from AndroidManifest.xml:34:7
-	android:resource
-		ADDED from AndroidManifest.xml:35:9
-	android:name
-		ADDED from AndroidManifest.xml:34:18
-activity#com.bignerdranch.android.photogallery.PhotoPageActivity
-ADDED from AndroidManifest.xml:37:5
-	android:configChanges
-		ADDED from AndroidManifest.xml:39:9
-	android:name
-		ADDED from AndroidManifest.xml:38:9
-service#com.bignerdranch.android.photogallery.PollService
-ADDED from AndroidManifest.xml:40:5
-	android:name
-		ADDED from AndroidManifest.xml:40:14
-receiver#com.bignerdranch.android.photogallery.StartupReceiver
-ADDED from AndroidManifest.xml:41:5
-	android:name
-		ADDED from AndroidManifest.xml:41:15
-intent-filter#android.intent.action.BOOT_COMPLETED
-ADDED from AndroidManifest.xml:42:9
-action#android.intent.action.BOOT_COMPLETED
 ADDED from AndroidManifest.xml:43:13
+	android:resource
+		ADDED from AndroidManifest.xml:45:17
 	android:name
-		ADDED from AndroidManifest.xml:43:21
+		ADDED from AndroidManifest.xml:44:17
+activity#com.bignerdranch.android.photogallery.PhotoPageActivity
+ADDED from AndroidManifest.xml:47:9
+	android:configChanges
+		ADDED from AndroidManifest.xml:49:13
+	android:name
+		ADDED from AndroidManifest.xml:48:13
+service#com.bignerdranch.android.photogallery.PollService
+ADDED from AndroidManifest.xml:51:9
+	android:name
+		ADDED from AndroidManifest.xml:51:18
+receiver#com.bignerdranch.android.photogallery.StartupReceiver
+ADDED from AndroidManifest.xml:52:9
+	android:name
+		ADDED from AndroidManifest.xml:52:19
+intent-filter#android.intent.action.BOOT_COMPLETED
+ADDED from AndroidManifest.xml:53:13
+action#android.intent.action.BOOT_COMPLETED
+ADDED from AndroidManifest.xml:54:17
+	android:name
+		ADDED from AndroidManifest.xml:54:25

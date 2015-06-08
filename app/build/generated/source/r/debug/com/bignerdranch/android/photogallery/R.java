@@ -202,24 +202,24 @@ containing a value of this type.
         public static final int fragmentContainer=0x7f0a000f;
         public static final int gallery_item_imageView=0x7f0a001b;
         public static final int gridView=0x7f0a0017;
+        public static final int imageView=0x7f0a0018;
         public static final int inline=0x7f0a0007;
         public static final int large=0x7f0a000c;
         public static final int left=0x7f0a000a;
         public static final int menu_item_clear=0x7f0a001e;
         public static final int menu_item_search=0x7f0a001d;
         public static final int menu_item_toggle_polling=0x7f0a001f;
+        public static final int messenger_button=0x7f0a001a;
         public static final int messenger_send_button=0x7f0a001c;
         public static final int normal=0x7f0a000d;
         public static final int open_graph=0x7f0a0000;
         public static final int page=0x7f0a0001;
-        public static final int progressBar=0x7f0a001a;
+        public static final int progressBar=0x7f0a0019;
         public static final int right=0x7f0a000b;
         public static final int small=0x7f0a000e;
         public static final int standard=0x7f0a0005;
-        public static final int titleTextView=0x7f0a0019;
         public static final int top=0x7f0a0008;
         public static final int unknown=0x7f0a0002;
-        public static final int webView=0x7f0a0018;
     }
     public static final class layout {
         public static final int activity_fragment=0x7f030000;
@@ -259,16 +259,17 @@ containing a value of this type.
         public static final int com_facebook_send_button_text=0x7f050010;
         public static final int com_facebook_share_button_text=0x7f050011;
         public static final int com_facebook_tooltip_default=0x7f050012;
-        public static final int hello_world=0x7f050013;
-        public static final int menu_settings=0x7f050014;
+        public static final int facebook_app_id=0x7f050013;
+        public static final int hello_world=0x7f050014;
+        public static final int menu_settings=0x7f050015;
         public static final int messenger_send_button_text=0x7f050000;
-        public static final int new_pictures_text=0x7f050015;
-        public static final int new_pictures_title=0x7f050016;
-        public static final int search=0x7f050017;
-        public static final int search_hint=0x7f050018;
-        public static final int start_polling=0x7f050019;
-        public static final int stop_polling=0x7f05001a;
-        public static final int title_activity_photo_gallery=0x7f05001b;
+        public static final int new_pictures_text=0x7f050016;
+        public static final int new_pictures_title=0x7f050017;
+        public static final int search=0x7f050018;
+        public static final int search_hint=0x7f050019;
+        public static final int start_polling=0x7f05001a;
+        public static final int stop_polling=0x7f05001b;
+        public static final int title_activity_photo_gallery=0x7f05001c;
     }
     public static final class style {
         public static final int AppTheme=0x7f060000;

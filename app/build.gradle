@@ -28,4 +28,5 @@ dependencies {
     compile 'com.squareup.dagger:dagger:1.2.0'
     compile 'com.squareup.dagger:dagger-compiler:1.2.0'
     compile 'com.facebook.android:facebook-android-sdk:4.0.0'
+    compile 'com.squareup.picasso:picasso:2.5.2'
 }
