@@ -1,26 +1,18 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <item
-        android:id="@+id/action_sync"
-        android:showAsAction="ifRoom"
-        android:title="sync">
+        android:id="@+id/menu_item_history_sync"
+        android:icon="@android:drawable/ic_menu_rotate"
+        android:title="@string/sync"
+        app:showAsAction="ifRoom|withText">
     </item>
 
     <item
-        android:id="@+id/action_logout"
-        android:showAsAction="never"
-        android:title="logout">
-    </item>
-
-    <item
-        android:id="@+id/action_login"
-        android:showAsAction="never"
-        android:title="login">
-    </item>
-    <item
-        android:id="@+id/menu_item_clear"
+        android:id="@+id/menu_item_history_clear"
         android:icon="@android:drawable/ic_menu_close_clear_cancel"
-        android:showAsAction="ifRoom"
-        android:title="Clear Searches"
+        android:title="@string/clear_history"
+        app:showAsAction="ifRoom"
         />
 
 </menu>

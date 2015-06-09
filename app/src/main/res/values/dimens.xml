@@ -1,0 +1,16 @@
+<resources>
+
+    <!-- General -->
+    <dimen name="grid_size">120dp</dimen>
+
+    <!-- Font Sizes -->
+    <dimen name="text_small">8sp</dimen>
+    <dimen name="text_medium">16sp</dimen>
+    <dimen name="text_large">32sp</dimen>
+
+    <!-- Padding Sizes -->
+    <dimen name="padding_small">8dp</dimen>
+    <dimen name="padding_medium">16dp</dimen>
+    <dimen name="padding_large">32dp</dimen>
+
+</resources>
