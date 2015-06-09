@@ -22,6 +22,11 @@ public class GalleryActivity extends BaseActivity {
     }
 
     @Override
+    protected boolean setupHomeButton() {
+        return false;
+    }
+
+    @Override
     public void onNewIntent(Intent intent) {
         GalleryFragment fragment = (GalleryFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentContainer);
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {

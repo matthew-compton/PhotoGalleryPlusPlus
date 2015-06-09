@@ -11,4 +11,9 @@ public class HistoryActivity extends BaseActivity {
         return HistoryFragment.newInstance();
     }
 
+    @Override
+    protected boolean setupHomeButton() {
+        return true;
+    }
+
 }

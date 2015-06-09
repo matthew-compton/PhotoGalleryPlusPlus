@@ -14,4 +14,9 @@ public class PhotoActivity extends BaseActivity {
         return PhotoFragment.newInstance(url);
     }
 
+    @Override
+    protected boolean setupHomeButton() {
+        return true;
+    }
+
 }

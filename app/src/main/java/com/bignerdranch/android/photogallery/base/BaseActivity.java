@@ -34,6 +34,8 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     protected abstract Fragment createFragment();
 
+    protected abstract boolean setupHomeButton();
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,8 +51,8 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     protected void setupToolbar() {
         setSupportActionBar(mToolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(setupHomeButton());
+        getSupportActionBar().setHomeButtonEnabled(setupHomeButton());
     }
 
     protected void setupOverflowButton() {
