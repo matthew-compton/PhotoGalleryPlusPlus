@@ -12,6 +12,7 @@ import com.ambergleam.android.photogallery.base.BaseFragment;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
+import timber.log.Timber;
 
 public class SettingsFragment extends BaseFragment {
 
@@ -42,11 +43,13 @@ public class SettingsFragment extends BaseFragment {
 
     @OnClick(R.id.fragment_settings_licenses)
     public void onClickLicenses() {
+        Timber.i("Licenses");
         // TODO
     }
 
     @OnClick(R.id.fragment_settings_about)
     public void onClickAbout() {
+        Timber.i("About");
         // TODO
     }
 

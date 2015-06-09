@@ -30,7 +30,7 @@ import timber.log.Timber;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
-    @InjectView(R.id.toolbar) public Toolbar mToolbar;
+    @InjectView(R.id.activity_fragment_toolbar) public Toolbar mToolbar;
 
     protected abstract Fragment createFragment();
 
@@ -87,11 +87,11 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     private void setupInitialFragment() {
         FragmentManager manager = getSupportFragmentManager();
-        Fragment fragment = manager.findFragmentById(R.id.fragmentContainer);
+        Fragment fragment = manager.findFragmentById(R.id.activity_fragment_container);
         if (fragment == null) {
             fragment = createFragment();
             manager.beginTransaction()
-                    .add(R.id.fragmentContainer, fragment)
+                    .add(R.id.activity_fragment_container, fragment)
                     .commit();
         }
     }

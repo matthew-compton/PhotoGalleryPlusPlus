@@ -10,4 +10,8 @@
     <color name="icons">#FFFFFF</color>
     <color name="divider">#B6B6B6</color>
 
+    <!-- Background List Item -->
+    <color name="background_list_item_default">#FFFFFF</color>
+    <color name="background_list_item_other">#B6B6B6</color>
+
 </resources>

@@ -27,7 +27,7 @@ public class GalleryActivity extends BaseActivity {
 
     @Override
     public void onNewIntent(Intent intent) {
-        GalleryFragment fragment = (GalleryFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentContainer);
+        GalleryFragment fragment = (GalleryFragment) getSupportFragmentManager().findFragmentById(R.id.activity_fragment_container);
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
             String query = intent.getStringExtra(SearchManager.QUERY);
             Timber.i("Received a new search query: " + query);
