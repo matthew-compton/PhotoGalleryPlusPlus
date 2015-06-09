@@ -1,20 +1,29 @@
 <resources>
 
     <!-- General -->
-    <string name="app_name">PhotoGallery</string>
+    <string name="app_name">Photo Gallery</string>
 
-    <!-- Search -->
-    <string name="search">Search</string>
-    <string name="search_hint">Search Flickr</string>
-    <string name="history">History</string>
-    <string name="search_history">History</string>
-    <string name="settings">Settings</string>
-    <string name="refresh">Refresh</string>
+    <!-- Gallery -->
+    <string name="title_gallery">Gallery</string>
+    <string name="menu_search">Search</string>
+    <string name="menu_search_hint">Search Flickr</string>
+    <string name="menu_history">History</string>
+    <string name="menu_settings">Settings</string>
+
+    <!-- Photo -->
+    <string name="title_photo">Photo</string>
 
     <!-- History -->
-    <string name="none">None</string>
-    <string name="sync">Sync</string>
-    <string name="clear_history">Clear History</string>
+    <string name="title_history">History</string>
+    <string name="history_none">None</string>
+    <string name="history_sync">Sync</string>
+    <string name="history_clear">Clear</string>
+
+    <!-- Settings -->
+    <string name="title_settings">Settings</string>
+    <string name="settings_notifications">Notifications</string>
+    <string name="settings_licenses">Licenses</string>
+    <string name="settings_about">About</string>
 
     <!-- Polling -->
     <string name="polling_start">Poll for New Pictures</string>
@@ -23,7 +32,7 @@
     <string name="new_pictures_text">You have new pictures in PhotoGallery.</string>
 
     <!-- Errors -->
-    <string name="error_sync">Sync failed due to lack of network.</string>
+    <string name="error_sync">Sync failed.</string>
 
     <!-- Metadata -->
     <string name="facebook_app_id">529545513865826</string>

@@ -7,7 +7,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
@@ -99,14 +98,12 @@ public class GalleryFragment extends BaseFragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.fragment_gallery, menu);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            MenuItem searchItem = menu.findItem(R.id.menu_item_gallery_search);
-            SearchView searchView = (SearchView) searchItem.getActionView();
-            SearchManager searchManager = (SearchManager) getActivity().getSystemService(Context.SEARCH_SERVICE);
-            ComponentName name = getActivity().getComponentName();
-            SearchableInfo searchInfo = searchManager.getSearchableInfo(name);
-            searchView.setSearchableInfo(searchInfo);
-        }
+        MenuItem searchItem = menu.findItem(R.id.menu_item_gallery_search);
+        SearchView searchView = (SearchView) searchItem.getActionView();
+        SearchManager searchManager = (SearchManager) getActivity().getSystemService(Context.SEARCH_SERVICE);
+        ComponentName name = getActivity().getComponentName();
+        SearchableInfo searchInfo = searchManager.getSearchableInfo(name);
+        searchView.setSearchableInfo(searchInfo);
     }
 
     @Override
@@ -116,38 +113,16 @@ public class GalleryFragment extends BaseFragment {
                 getActivity().onSearchRequested();
                 return true;
             case R.id.menu_item_gallery_history:
-                Intent i = new Intent(getActivity(), HistoryActivity.class);
-                startActivity(i);
-                return true;
-            case R.id.menu_item_gallery_polling:
-                boolean shouldStartAlarm = !PollService.isServiceAlarmOn(getActivity());
-                PollService.setServiceAlarm(getActivity(), shouldStartAlarm);
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-                    getActivity().invalidateOptionsMenu();
-                }
+                Intent intentHistory = new Intent(getActivity(), HistoryActivity.class);
+                startActivity(intentHistory);
                 return true;
             case R.id.menu_item_gallery_settings:
-                // TODO
+                Intent intentSettings = new Intent(getActivity(), SettingsActivity.class);
+                startActivity(intentSettings);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
-
-    @Override
-    public void onPrepareOptionsMenu(Menu menu) {
-        super.onPrepareOptionsMenu(menu);
-        MenuItem toggleItem = menu.findItem(R.id.menu_item_gallery_polling);
-        if (PollService.isServiceAlarmOn(getActivity())) {
-            toggleItem.setTitle(R.string.polling_stop);
-        } else {
-            toggleItem.setTitle(R.string.polling_start);
-        }
-    }
-
-    public void refresh() {
-        PreferenceUtils.setSearchQuery(getActivity(), null);
-        updatePhotos();
     }
 
     public void updatePhotos() {
@@ -171,6 +146,7 @@ public class GalleryFragment extends BaseFragment {
     }
 
     private class UpdatePhotosAsyncTask extends AsyncTask<Void, Void, ArrayList<Photo>> {
+
         @Override
         protected ArrayList<Photo> doInBackground(Void... params) {
             if (getActivity() == null) {

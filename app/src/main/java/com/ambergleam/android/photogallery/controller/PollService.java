@@ -85,6 +85,7 @@ public class PollService extends IntentService {
     }
 
     public static void setServiceAlarm(Context context, boolean isAlarmOn) {
+        Timber.i("isAlarmOn = " + isAlarmOn);
         Intent intent = new Intent(context, PollService.class);
         PendingIntent pendingIntent = PendingIntent.getService(context, 0, intent, 0);
 

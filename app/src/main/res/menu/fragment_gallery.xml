@@ -4,7 +4,7 @@
     <item
         android:id="@+id/menu_item_gallery_search"
         android:icon="@drawable/ic_search"
-        android:title="@string/search"
+        android:title="@string/menu_search"
         app:actionViewClass="android.support.v7.widget.SearchView"
         app:showAsAction="ifRoom"
         />
@@ -12,14 +12,14 @@
     <item
         android:id="@+id/menu_item_gallery_history"
         android:icon="@drawable/ic_history"
-        android:title="@string/history"
+        android:title="@string/menu_history"
         app:showAsAction="never"
         />
 
     <item
         android:id="@+id/menu_item_gallery_settings"
         android:icon="@drawable/ic_settings"
-        android:title="@string/settings"
+        android:title="@string/menu_settings"
         app:showAsAction="never"
         />
 

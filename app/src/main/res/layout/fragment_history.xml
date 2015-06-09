@@ -18,7 +18,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:gravity="center"
-        android:text="@string/none"
+        android:text="@string/history_none"
         android:textColor="@color/primary_text"
         android:textSize="@dimen/text_large"
         android:visibility="gone"
