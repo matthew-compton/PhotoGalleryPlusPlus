@@ -2,6 +2,7 @@ package com.bignerdranch.android.photogallery.web;
 
 import android.net.Uri;
 
+import com.bignerdranch.android.photogallery.PhotoGalleryConstants;
 import com.bignerdranch.android.photogallery.model.Photo;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -24,7 +25,6 @@ public class FlickrFetchr {
     public static final String PREF_LAST_RESULT_ID = "lastResultId";
 
     private static final String ENDPOINT = "https://api.flickr.com/services/rest/";
-    private static final String API_KEY = "4f721bbafa75bf6d2cb5af54f937bb70";
     private static final String METHOD_GET_RECENT = "flickr.photos.getRecent";
     private static final String METHOD_SEARCH = "flickr.photos.search";
     private static final String PARAM_EXTRAS = "extras";
@@ -62,7 +62,7 @@ public class FlickrFetchr {
     public ArrayList<Photo> getRecentPhotos() {
         String url = Uri.parse(ENDPOINT).buildUpon()
                 .appendQueryParameter("method", METHOD_GET_RECENT)
-                .appendQueryParameter("api_key", API_KEY)
+                .appendQueryParameter("api_key", PhotoGalleryConstants.API_KEY)
                 .appendQueryParameter(PARAM_EXTRAS, EXTRA_SMALL_URL)
                 .build().toString();
         return downloadGalleryItems(url);
@@ -71,7 +71,7 @@ public class FlickrFetchr {
     public ArrayList<Photo> searchPhotos(String query) {
         String url = Uri.parse(ENDPOINT).buildUpon()
                 .appendQueryParameter("method", METHOD_SEARCH)
-                .appendQueryParameter("api_key", API_KEY)
+                .appendQueryParameter("api_key", PhotoGalleryConstants.API_KEY)
                 .appendQueryParameter(PARAM_EXTRAS, EXTRA_SMALL_URL)
                 .appendQueryParameter(PARAM_TEXT, query)
                 .build().toString();
