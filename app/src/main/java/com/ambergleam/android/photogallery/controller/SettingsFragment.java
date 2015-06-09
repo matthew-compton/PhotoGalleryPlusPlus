@@ -5,7 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Switch;
+import android.widget.TextView;
 
+import com.ambergleam.android.photogallery.BuildConfig;
 import com.ambergleam.android.photogallery.R;
 import com.ambergleam.android.photogallery.base.BaseFragment;
 import com.ambergleam.android.photogallery.dialog.AboutDialogFragment;
@@ -18,6 +20,7 @@ import butterknife.OnClick;
 public class SettingsFragment extends BaseFragment {
 
     @InjectView(R.id.fragment_settings_notifications_switch) Switch mNotificationSwitch;
+    @InjectView(R.id.fragment_settings_version_text) TextView mVersionTextView;
 
     public static SettingsFragment newInstance() {
         return new SettingsFragment();
@@ -33,6 +36,7 @@ public class SettingsFragment extends BaseFragment {
 
     private void updateUI() {
         mNotificationSwitch.setChecked(PollService.isServiceAlarmOn(getActivity()));
+        mVersionTextView.setText(BuildConfig.VERSION_NAME);
     }
 
     private void displayLicensesDialogFragment() {
