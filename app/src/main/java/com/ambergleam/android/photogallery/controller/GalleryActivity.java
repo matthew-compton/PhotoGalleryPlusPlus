@@ -2,14 +2,13 @@ package com.ambergleam.android.photogallery.controller;
 
 import android.app.SearchManager;
 import android.content.Intent;
-import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 
 import com.ambergleam.android.photogallery.PhotoGalleryApplication;
 import com.ambergleam.android.photogallery.R;
 import com.ambergleam.android.photogallery.base.BaseActivity;
 import com.ambergleam.android.photogallery.model.Search;
-import com.ambergleam.android.photogallery.web.FlickrFetchr;
+import com.ambergleam.android.photogallery.util.PreferenceUtils;
 import com.parse.ParseUser;
 
 import timber.log.Timber;
@@ -39,12 +38,8 @@ public class GalleryActivity extends BaseActivity {
             search.setAuthor(ParseUser.getCurrentUser());
             search.pinInBackground(PhotoGalleryApplication.getGroupNameSearch());
 
-            PreferenceManager.getDefaultSharedPreferences(this)
-                    .edit()
-                    .putString(FlickrFetchr.PREF_SEARCH_QUERY, query)
-                    .commit();
+            PreferenceUtils.setSearchQuery(this, query);
         }
-
         fragment.updatePhotos();
     }
 

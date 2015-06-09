@@ -25,6 +25,7 @@ import android.widget.ImageView;
 import com.ambergleam.android.photogallery.R;
 import com.ambergleam.android.photogallery.base.BaseFragment;
 import com.ambergleam.android.photogallery.model.Photo;
+import com.ambergleam.android.photogallery.util.PreferenceUtils;
 import com.ambergleam.android.photogallery.web.FlickrFetchr;
 import com.ambergleam.android.photogallery.web.ThumbnailDownloader;
 import com.facebook.appevents.AppEventsLogger;
@@ -116,11 +117,8 @@ public class GalleryFragment extends BaseFragment {
             case R.id.menu_item_gallery_search:
                 getActivity().onSearchRequested();
                 return true;
-            case R.id.menu_item_gallery_clear:
-                PreferenceManager.getDefaultSharedPreferences(getActivity())
-                        .edit()
-                        .putString(FlickrFetchr.PREF_SEARCH_QUERY, null)
-                        .commit();
+            case R.id.menu_item_gallery_refresh:
+                PreferenceUtils.setSearchQuery(getActivity(), null);
                 updatePhotos();
                 return true;
             case R.id.menu_item_gallery_history:
@@ -133,6 +131,9 @@ public class GalleryFragment extends BaseFragment {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
                     getActivity().invalidateOptionsMenu();
                 }
+                return true;
+            case R.id.menu_item_gallery_settings:
+                // TODO
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -189,10 +190,7 @@ public class GalleryFragment extends BaseFragment {
             mPhotos = items;
             if (items.size() > 0) {
                 String resultId = items.get(0).getId();
-                PreferenceManager.getDefaultSharedPreferences(getActivity())
-                        .edit()
-                        .putString(FlickrFetchr.PREF_LAST_RESULT_ID, resultId)
-                        .commit();
+                PreferenceUtils.setLastResultId(getActivity(), resultId);
             }
             setupAdapter();
         }
