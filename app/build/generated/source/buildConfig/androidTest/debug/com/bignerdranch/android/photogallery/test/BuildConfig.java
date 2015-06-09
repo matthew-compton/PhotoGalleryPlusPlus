@@ -1,11 +1,11 @@
 /**
  * Automatically generated file. DO NOT MODIFY
  */
-package com.ambergleam.android.photogallery.test;
+package com.bignerdranch.android.photogallery.test;
 
 public final class BuildConfig {
   public static final boolean DEBUG = Boolean.parseBoolean("true");
-  public static final String APPLICATION_ID = "com.ambergleam.android.photogallery.test";
+  public static final String APPLICATION_ID = "com.bignerdranch.android.photogallery.test";
   public static final String BUILD_TYPE = "debug";
   public static final String FLAVOR = "";
   public static final int VERSION_CODE = 1;

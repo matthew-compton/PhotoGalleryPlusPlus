@@ -305,12 +305,12 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #com_facebook_like_view_auxiliary_view_position com.ambergleam.android.photogallery:auxiliary_view_position}</code></td><td></td></tr>
-           <tr><td><code>{@link #com_facebook_like_view_foreground_color com.ambergleam.android.photogallery:foreground_color}</code></td><td></td></tr>
-           <tr><td><code>{@link #com_facebook_like_view_horizontal_alignment com.ambergleam.android.photogallery:horizontal_alignment}</code></td><td></td></tr>
-           <tr><td><code>{@link #com_facebook_like_view_object_id com.ambergleam.android.photogallery:object_id}</code></td><td></td></tr>
-           <tr><td><code>{@link #com_facebook_like_view_object_type com.ambergleam.android.photogallery:object_type}</code></td><td></td></tr>
-           <tr><td><code>{@link #com_facebook_like_view_style com.ambergleam.android.photogallery:style}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_like_view_auxiliary_view_position com.bignerdranch.android.photogallery:auxiliary_view_position}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_like_view_foreground_color com.bignerdranch.android.photogallery:foreground_color}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_like_view_horizontal_alignment com.bignerdranch.android.photogallery:horizontal_alignment}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_like_view_object_id com.bignerdranch.android.photogallery:object_id}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_like_view_object_type com.bignerdranch.android.photogallery:object_type}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_like_view_style com.bignerdranch.android.photogallery:style}</code></td><td></td></tr>
            </table>
            @see #com_facebook_like_view_auxiliary_view_position
            @see #com_facebook_like_view_foreground_color
@@ -324,7 +324,7 @@ containing a value of this type.
             0x7f010004, 0x7f010005
         };
         /**
-          <p>This symbol is the offset where the {@link com.ambergleam.android.photogallery.R.attr#auxiliary_view_position}
+          <p>This symbol is the offset where the {@link com.bignerdranch.android.photogallery.R.attr#auxiliary_view_position}
           attribute's value can be found in the {@link #com_facebook_like_view} array.
 
 
@@ -338,11 +338,11 @@ containing a value of this type.
 <tr><td><code>inline</code></td><td>1</td><td></td></tr>
 <tr><td><code>top</code></td><td>2</td><td></td></tr>
 </table>
-          @attr name com.ambergleam.android.photogallery:auxiliary_view_position
+          @attr name com.bignerdranch.android.photogallery:auxiliary_view_position
         */
         public static final int com_facebook_like_view_auxiliary_view_position = 4;
         /**
-          <p>This symbol is the offset where the {@link com.ambergleam.android.photogallery.R.attr#foreground_color}
+          <p>This symbol is the offset where the {@link com.bignerdranch.android.photogallery.R.attr#foreground_color}
           attribute's value can be found in the {@link #com_facebook_like_view} array.
 
 
@@ -353,11 +353,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.ambergleam.android.photogallery:foreground_color
+          @attr name com.bignerdranch.android.photogallery:foreground_color
         */
         public static final int com_facebook_like_view_foreground_color = 0;
         /**
-          <p>This symbol is the offset where the {@link com.ambergleam.android.photogallery.R.attr#horizontal_alignment}
+          <p>This symbol is the offset where the {@link com.bignerdranch.android.photogallery.R.attr#horizontal_alignment}
           attribute's value can be found in the {@link #com_facebook_like_view} array.
 
 
@@ -371,11 +371,11 @@ containing a value of this type.
 <tr><td><code>left</code></td><td>1</td><td></td></tr>
 <tr><td><code>right</code></td><td>2</td><td></td></tr>
 </table>
-          @attr name com.ambergleam.android.photogallery:horizontal_alignment
+          @attr name com.bignerdranch.android.photogallery:horizontal_alignment
         */
         public static final int com_facebook_like_view_horizontal_alignment = 5;
         /**
-          <p>This symbol is the offset where the {@link com.ambergleam.android.photogallery.R.attr#object_id}
+          <p>This symbol is the offset where the {@link com.bignerdranch.android.photogallery.R.attr#object_id}
           attribute's value can be found in the {@link #com_facebook_like_view} array.
 
 
@@ -385,11 +385,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.ambergleam.android.photogallery:object_id
+          @attr name com.bignerdranch.android.photogallery:object_id
         */
         public static final int com_facebook_like_view_object_id = 1;
         /**
-          <p>This symbol is the offset where the {@link com.ambergleam.android.photogallery.R.attr#object_type}
+          <p>This symbol is the offset where the {@link com.bignerdranch.android.photogallery.R.attr#object_type}
           attribute's value can be found in the {@link #com_facebook_like_view} array.
 
 
@@ -403,11 +403,11 @@ containing a value of this type.
 <tr><td><code>open_graph</code></td><td>1</td><td></td></tr>
 <tr><td><code>page</code></td><td>2</td><td></td></tr>
 </table>
-          @attr name com.ambergleam.android.photogallery:object_type
+          @attr name com.bignerdranch.android.photogallery:object_type
         */
         public static final int com_facebook_like_view_object_type = 2;
         /**
-          <p>This symbol is the offset where the {@link com.ambergleam.android.photogallery.R.attr#style}
+          <p>This symbol is the offset where the {@link com.bignerdranch.android.photogallery.R.attr#style}
           attribute's value can be found in the {@link #com_facebook_like_view} array.
 
 
@@ -421,7 +421,7 @@ containing a value of this type.
 <tr><td><code>button</code></td><td>1</td><td></td></tr>
 <tr><td><code>box_count</code></td><td>2</td><td></td></tr>
 </table>
-          @attr name com.ambergleam.android.photogallery:style
+          @attr name com.bignerdranch.android.photogallery:style
         */
         public static final int com_facebook_like_view_style = 3;
         /** Attributes that can be used with a com_facebook_login_view.
@@ -430,9 +430,9 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #com_facebook_login_view_confirm_logout com.ambergleam.android.photogallery:confirm_logout}</code></td><td></td></tr>
-           <tr><td><code>{@link #com_facebook_login_view_login_text com.ambergleam.android.photogallery:login_text}</code></td><td></td></tr>
-           <tr><td><code>{@link #com_facebook_login_view_logout_text com.ambergleam.android.photogallery:logout_text}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_login_view_confirm_logout com.bignerdranch.android.photogallery:confirm_logout}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_login_view_login_text com.bignerdranch.android.photogallery:login_text}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_login_view_logout_text com.bignerdranch.android.photogallery:logout_text}</code></td><td></td></tr>
            </table>
            @see #com_facebook_login_view_confirm_logout
            @see #com_facebook_login_view_login_text
@@ -442,7 +442,7 @@ containing a value of this type.
             0x7f010006, 0x7f010007, 0x7f010008
         };
         /**
-          <p>This symbol is the offset where the {@link com.ambergleam.android.photogallery.R.attr#confirm_logout}
+          <p>This symbol is the offset where the {@link com.bignerdranch.android.photogallery.R.attr#confirm_logout}
           attribute's value can be found in the {@link #com_facebook_login_view} array.
 
 
@@ -452,11 +452,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.ambergleam.android.photogallery:confirm_logout
+          @attr name com.bignerdranch.android.photogallery:confirm_logout
         */
         public static final int com_facebook_login_view_confirm_logout = 0;
         /**
-          <p>This symbol is the offset where the {@link com.ambergleam.android.photogallery.R.attr#login_text}
+          <p>This symbol is the offset where the {@link com.bignerdranch.android.photogallery.R.attr#login_text}
           attribute's value can be found in the {@link #com_facebook_login_view} array.
 
 
@@ -466,11 +466,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.ambergleam.android.photogallery:login_text
+          @attr name com.bignerdranch.android.photogallery:login_text
         */
         public static final int com_facebook_login_view_login_text = 1;
         /**
-          <p>This symbol is the offset where the {@link com.ambergleam.android.photogallery.R.attr#logout_text}
+          <p>This symbol is the offset where the {@link com.bignerdranch.android.photogallery.R.attr#logout_text}
           attribute's value can be found in the {@link #com_facebook_login_view} array.
 
 
@@ -480,7 +480,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.ambergleam.android.photogallery:logout_text
+          @attr name com.bignerdranch.android.photogallery:logout_text
         */
         public static final int com_facebook_login_view_logout_text = 2;
         /** Attributes that can be used with a com_facebook_profile_picture_view.
@@ -489,8 +489,8 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #com_facebook_profile_picture_view_is_cropped com.ambergleam.android.photogallery:is_cropped}</code></td><td></td></tr>
-           <tr><td><code>{@link #com_facebook_profile_picture_view_preset_size com.ambergleam.android.photogallery:preset_size}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_profile_picture_view_is_cropped com.bignerdranch.android.photogallery:is_cropped}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_profile_picture_view_preset_size com.bignerdranch.android.photogallery:preset_size}</code></td><td></td></tr>
            </table>
            @see #com_facebook_profile_picture_view_is_cropped
            @see #com_facebook_profile_picture_view_preset_size
@@ -499,7 +499,7 @@ containing a value of this type.
             0x7f010009, 0x7f01000a
         };
         /**
-          <p>This symbol is the offset where the {@link com.ambergleam.android.photogallery.R.attr#is_cropped}
+          <p>This symbol is the offset where the {@link com.bignerdranch.android.photogallery.R.attr#is_cropped}
           attribute's value can be found in the {@link #com_facebook_profile_picture_view} array.
 
 
@@ -509,11 +509,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.ambergleam.android.photogallery:is_cropped
+          @attr name com.bignerdranch.android.photogallery:is_cropped
         */
         public static final int com_facebook_profile_picture_view_is_cropped = 1;
         /**
-          <p>This symbol is the offset where the {@link com.ambergleam.android.photogallery.R.attr#preset_size}
+          <p>This symbol is the offset where the {@link com.bignerdranch.android.photogallery.R.attr#preset_size}
           attribute's value can be found in the {@link #com_facebook_profile_picture_view} array.
 
 
@@ -527,7 +527,7 @@ containing a value of this type.
 <tr><td><code>normal</code></td><td>-3</td><td></td></tr>
 <tr><td><code>large</code></td><td>-4</td><td></td></tr>
 </table>
-          @attr name com.ambergleam.android.photogallery:preset_size
+          @attr name com.bignerdranch.android.photogallery:preset_size
         */
         public static final int com_facebook_profile_picture_view_preset_size = 0;
     };
