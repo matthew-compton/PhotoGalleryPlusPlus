@@ -28,6 +28,7 @@ public class PhotoFragment extends BaseFragment {
     public static final String ARGS_URL = "ARGS_URL";
 
     @InjectView(R.id.fragment_photo_image) ImageView mImageView;
+
     private String mUrl;
 
     public static PhotoFragment newInstance(String url) {
@@ -43,7 +44,6 @@ public class PhotoFragment extends BaseFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setRetainInstance(true);
         mUrl = getArguments().getString(ARGS_URL);
     }
 

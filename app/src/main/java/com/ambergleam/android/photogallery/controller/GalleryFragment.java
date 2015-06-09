@@ -49,8 +49,6 @@ public class GalleryFragment extends BaseFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setRetainInstance(true);
-        setHasOptionsMenu(true);
         updatePhotos();
         setupDownloaderThread();
     }
@@ -117,10 +115,6 @@ public class GalleryFragment extends BaseFragment {
             case R.id.menu_item_gallery_search:
                 getActivity().onSearchRequested();
                 return true;
-            case R.id.menu_item_gallery_refresh:
-                PreferenceUtils.setSearchQuery(getActivity(), null);
-                updatePhotos();
-                return true;
             case R.id.menu_item_gallery_history:
                 Intent i = new Intent(getActivity(), HistoryActivity.class);
                 startActivity(i);
@@ -149,6 +143,11 @@ public class GalleryFragment extends BaseFragment {
         } else {
             toggleItem.setTitle(R.string.polling_start);
         }
+    }
+
+    public void refresh() {
+        PreferenceUtils.setSearchQuery(getActivity(), null);
+        updatePhotos();
     }
 
     public void updatePhotos() {

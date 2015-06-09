@@ -3,34 +3,29 @@
 
     <item
         android:id="@+id/menu_item_gallery_search"
-        android:icon="@android:drawable/ic_menu_search"
+        android:icon="@drawable/ic_search"
         android:title="@string/search"
         app:actionViewClass="android.support.v7.widget.SearchView"
         app:showAsAction="ifRoom"
         />
 
     <item
-        android:id="@+id/menu_item_gallery_refresh"
-        android:icon="@android:drawable/ic_menu_revert"
-        android:title="@string/refresh"
-        app:showAsAction="ifRoom"
+        android:id="@+id/menu_item_gallery_history"
+        android:icon="@drawable/ic_history"
+        android:title="@string/history"
+        app:showAsAction="never"
         />
 
     <item
-        android:id="@+id/menu_item_gallery_history"
-        android:title="@string/search_history"
+        android:id="@+id/menu_item_gallery_settings"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/settings"
         app:showAsAction="never"
         />
 
     <item
         android:id="@+id/menu_item_gallery_polling"
         android:title="@string/polling_start"
-        app:showAsAction="never"
-        />
-
-    <item
-        android:id="@+id/menu_item_gallery_settings"
-        android:title="@string/settings"
         app:showAsAction="never"
         />
 

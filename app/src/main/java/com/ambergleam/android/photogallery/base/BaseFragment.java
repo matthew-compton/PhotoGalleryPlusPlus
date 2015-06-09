@@ -5,6 +5,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
 import com.ambergleam.android.photogallery.controller.PollService;
@@ -13,13 +14,12 @@ import timber.log.Timber;
 
 public abstract class BaseFragment extends Fragment {
 
-    private BroadcastReceiver mOnShowNotification = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            Timber.i("Canceling Notification");
-            setResultCode(Activity.RESULT_CANCELED);
-        }
-    };
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setRetainInstance(true);
+        setHasOptionsMenu(true);
+    }
 
     @Override
     public void onResume() {
@@ -33,5 +33,13 @@ public abstract class BaseFragment extends Fragment {
         super.onPause();
         getActivity().unregisterReceiver(mOnShowNotification);
     }
+
+    private BroadcastReceiver mOnShowNotification = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Timber.i("Canceling Notification");
+            setResultCode(Activity.RESULT_CANCELED);
+        }
+    };
 
 }
