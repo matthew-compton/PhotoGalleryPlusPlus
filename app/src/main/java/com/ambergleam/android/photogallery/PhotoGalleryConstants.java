@@ -1,4 +1,4 @@
-package com.bignerdranch.android.photogallery;
+package com.ambergleam.android.photogallery;
 
 public class PhotoGalleryConstants {
 

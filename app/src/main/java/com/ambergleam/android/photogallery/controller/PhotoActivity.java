@@ -1,9 +1,9 @@
-package com.bignerdranch.android.photogallery.controller;
+package com.ambergleam.android.photogallery.controller;
 
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 
-import com.bignerdranch.android.photogallery.base.BaseActivity;
+import com.ambergleam.android.photogallery.base.BaseActivity;
 
 public class PhotoActivity extends BaseActivity {
 

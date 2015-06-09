@@ -1,8 +1,8 @@
-package com.bignerdranch.android.photogallery;
+package com.ambergleam.android.photogallery;
 
 import android.app.Application;
 
-import com.bignerdranch.android.photogallery.model.Search;
+import com.ambergleam.android.photogallery.model.Search;
 import com.parse.Parse;
 import com.parse.ParseACL;
 import com.parse.ParseObject;

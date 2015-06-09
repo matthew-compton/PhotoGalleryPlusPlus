@@ -1,4 +1,4 @@
-package com.bignerdranch.android.photogallery.web;
+package com.ambergleam.android.photogallery.web;
 
 import android.annotation.SuppressLint;
 import android.graphics.Bitmap;

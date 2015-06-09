@@ -1,4 +1,4 @@
-package com.bignerdranch.android.photogallery.controller;
+package com.ambergleam.android.photogallery.controller;
 
 import android.app.SearchManager;
 import android.app.SearchableInfo;
@@ -22,11 +22,11 @@ import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 
-import com.bignerdranch.android.photogallery.R;
-import com.bignerdranch.android.photogallery.base.BaseFragment;
-import com.bignerdranch.android.photogallery.model.Photo;
-import com.bignerdranch.android.photogallery.web.FlickrFetchr;
-import com.bignerdranch.android.photogallery.web.ThumbnailDownloader;
+import com.ambergleam.android.photogallery.R;
+import com.ambergleam.android.photogallery.base.BaseFragment;
+import com.ambergleam.android.photogallery.model.Photo;
+import com.ambergleam.android.photogallery.web.FlickrFetchr;
+import com.ambergleam.android.photogallery.web.ThumbnailDownloader;
 import com.facebook.appevents.AppEventsLogger;
 
 import java.util.ArrayList;

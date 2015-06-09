@@ -1,4 +1,4 @@
-package com.bignerdranch.android.photogallery.controller;
+package com.ambergleam.android.photogallery.controller;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

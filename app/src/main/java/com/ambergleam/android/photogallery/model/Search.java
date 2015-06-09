@@ -1,4 +1,4 @@
-package com.bignerdranch.android.photogallery.model;
+package com.ambergleam.android.photogallery.model;
 
 import com.parse.ParseClassName;
 import com.parse.ParseObject;

@@ -1,4 +1,4 @@
-package com.bignerdranch.android.photogallery.base;
+package com.ambergleam.android.photogallery.base;
 
 import android.app.ActivityManager;
 import android.content.pm.PackageInfo;
@@ -18,7 +18,7 @@ import android.util.TypedValue;
 import android.view.MenuItem;
 import android.view.ViewConfiguration;
 
-import com.bignerdranch.android.photogallery.R;
+import com.ambergleam.android.photogallery.R;
 
 import java.lang.reflect.Field;
 import java.security.MessageDigest;

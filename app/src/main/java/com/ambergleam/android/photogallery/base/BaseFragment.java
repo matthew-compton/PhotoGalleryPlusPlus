@@ -1,4 +1,4 @@
-package com.bignerdranch.android.photogallery.base;
+package com.ambergleam.android.photogallery.base;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;
@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.support.v4.app.Fragment;
 
-import com.bignerdranch.android.photogallery.controller.PollService;
+import com.ambergleam.android.photogallery.controller.PollService;
 
 import timber.log.Timber;
 

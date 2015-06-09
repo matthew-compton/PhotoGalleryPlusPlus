@@ -1,4 +1,4 @@
-package com.bignerdranch.android.photogallery.controller;
+package com.ambergleam.android.photogallery.controller;
 
 import android.app.Activity;
 import android.app.AlarmManager;
@@ -15,9 +15,9 @@ import android.net.ConnectivityManager;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 
-import com.bignerdranch.android.photogallery.R;
-import com.bignerdranch.android.photogallery.model.Photo;
-import com.bignerdranch.android.photogallery.web.FlickrFetchr;
+import com.ambergleam.android.photogallery.R;
+import com.ambergleam.android.photogallery.model.Photo;
+import com.ambergleam.android.photogallery.web.FlickrFetchr;
 
 import java.util.ArrayList;
 

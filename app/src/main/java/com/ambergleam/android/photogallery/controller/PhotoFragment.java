@@ -1,4 +1,4 @@
-package com.bignerdranch.android.photogallery.controller;
+package com.ambergleam.android.photogallery.controller;
 
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -11,8 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.bignerdranch.android.photogallery.R;
-import com.bignerdranch.android.photogallery.base.BaseFragment;
+import com.ambergleam.android.photogallery.R;
+import com.ambergleam.android.photogallery.base.BaseFragment;
 import com.facebook.messenger.MessengerUtils;
 import com.facebook.messenger.ShareToMessengerParams;
 import com.squareup.picasso.Picasso;

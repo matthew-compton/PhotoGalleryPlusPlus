@@ -1,9 +1,9 @@
-package com.bignerdranch.android.photogallery.web;
+package com.ambergleam.android.photogallery.web;
 
 import android.net.Uri;
 
-import com.bignerdranch.android.photogallery.PhotoGalleryConstants;
-import com.bignerdranch.android.photogallery.model.Photo;
+import com.ambergleam.android.photogallery.PhotoGalleryConstants;
+import com.ambergleam.android.photogallery.model.Photo;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;

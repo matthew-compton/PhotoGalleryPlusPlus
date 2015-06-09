@@ -1,15 +1,15 @@
-package com.bignerdranch.android.photogallery.controller;
+package com.ambergleam.android.photogallery.controller;
 
 import android.app.SearchManager;
 import android.content.Intent;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 
-import com.bignerdranch.android.photogallery.PhotoGalleryApplication;
-import com.bignerdranch.android.photogallery.R;
-import com.bignerdranch.android.photogallery.base.BaseActivity;
-import com.bignerdranch.android.photogallery.model.Search;
-import com.bignerdranch.android.photogallery.web.FlickrFetchr;
+import com.ambergleam.android.photogallery.PhotoGalleryApplication;
+import com.ambergleam.android.photogallery.R;
+import com.ambergleam.android.photogallery.base.BaseActivity;
+import com.ambergleam.android.photogallery.model.Search;
+import com.ambergleam.android.photogallery.web.FlickrFetchr;
 import com.parse.ParseUser;
 
 import timber.log.Timber;

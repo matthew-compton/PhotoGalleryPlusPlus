@@ -1,4 +1,4 @@
-package com.bignerdranch.android.photogallery.controller;
+package com.ambergleam.android.photogallery.controller;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
@@ -14,10 +14,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bignerdranch.android.photogallery.PhotoGalleryApplication;
-import com.bignerdranch.android.photogallery.R;
-import com.bignerdranch.android.photogallery.base.BaseFragment;
-import com.bignerdranch.android.photogallery.model.Search;
+import com.ambergleam.android.photogallery.PhotoGalleryApplication;
+import com.ambergleam.android.photogallery.R;
+import com.ambergleam.android.photogallery.base.BaseFragment;
+import com.ambergleam.android.photogallery.model.Search;
 import com.parse.ParseAnonymousUtils;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
