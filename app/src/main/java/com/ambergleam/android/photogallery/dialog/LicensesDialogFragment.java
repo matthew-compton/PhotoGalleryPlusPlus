@@ -1,4 +1,4 @@
-package com.ambergleam.android.photogallery.controller;
+package com.ambergleam.android.photogallery.dialog;
 
 import android.app.AlertDialog;
 import android.app.Dialog;

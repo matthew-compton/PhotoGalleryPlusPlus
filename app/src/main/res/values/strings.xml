@@ -28,6 +28,10 @@
     <!-- Licenses -->
     <string name="title_licenses">Open-Source Licenses</string>
 
+    <!-- About -->
+    <string name="title_about">About</string>
+    <string name="about_content">Copyright \u00A9 2015\nMatthew Compton\nAll Rights Reserved</string>
+
     <!-- Polling -->
     <string name="polling_start">Poll for New Pictures</string>
     <string name="polling_stop">Stop Polling</string>

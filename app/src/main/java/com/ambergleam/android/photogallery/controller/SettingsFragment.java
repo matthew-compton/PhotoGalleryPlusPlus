@@ -8,11 +8,12 @@ import android.widget.Switch;
 
 import com.ambergleam.android.photogallery.R;
 import com.ambergleam.android.photogallery.base.BaseFragment;
+import com.ambergleam.android.photogallery.dialog.AboutDialogFragment;
+import com.ambergleam.android.photogallery.dialog.LicensesDialogFragment;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
-import timber.log.Timber;
 
 public class SettingsFragment extends BaseFragment {
 
@@ -34,9 +35,14 @@ public class SettingsFragment extends BaseFragment {
         mNotificationSwitch.setChecked(PollService.isServiceAlarmOn(getActivity()));
     }
 
-    private void displayLicensesFragmentDialog() {
+    private void displayLicensesDialogFragment() {
         LicensesDialogFragment dialog = LicensesDialogFragment.newInstance();
         dialog.show(getChildFragmentManager(), LicensesDialogFragment.class.getSimpleName());
+    }
+
+    private void displayAboutDialogFragment() {
+        AboutDialogFragment dialog = AboutDialogFragment.newInstance();
+        dialog.show(getChildFragmentManager(), AboutDialogFragment.class.getSimpleName());
     }
 
     @OnClick(R.id.fragment_settings_notifications)
@@ -48,13 +54,12 @@ public class SettingsFragment extends BaseFragment {
 
     @OnClick(R.id.fragment_settings_licenses)
     public void onClickLicenses() {
-        displayLicensesFragmentDialog();
+        displayLicensesDialogFragment();
     }
 
     @OnClick(R.id.fragment_settings_about)
     public void onClickAbout() {
-        Timber.i("About");
-        // TODO
+        displayAboutDialogFragment();
     }
 
 }
