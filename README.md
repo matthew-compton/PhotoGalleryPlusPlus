@@ -1,4 +1,4 @@
-Directions
+Directions for Adding Facebook Messenger Sharing
 ---
 This is a step-by-step guide of adding a share-to-Facebook-Messenger functionality into PhotoGallery.
 
@@ -8,7 +8,7 @@ Go to to the [Facebook Developer portal](https://developers.facebook.com/quickst
 
 Step 2) Add App Id to Strings.xml
 ---
-`<string name="facebook_app_id">529545513865826</string>`
+`<string name="facebook_app_id">XXXXXXXXXXXXXXX</string>`
 
 Step 3) Add App Id to AndroidManifest.xml
 ---
