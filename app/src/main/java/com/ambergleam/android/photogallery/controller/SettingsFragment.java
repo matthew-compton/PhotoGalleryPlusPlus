@@ -34,6 +34,11 @@ public class SettingsFragment extends BaseFragment {
         mNotificationSwitch.setChecked(PollService.isServiceAlarmOn(getActivity()));
     }
 
+    private void displayLicensesFragmentDialog() {
+        LicensesDialogFragment dialog = LicensesDialogFragment.newInstance();
+        dialog.show(getChildFragmentManager(), LicensesDialogFragment.class.getSimpleName());
+    }
+
     @OnClick(R.id.fragment_settings_notifications)
     public void onClickNotifications() {
         boolean shouldStartAlarm = !PollService.isServiceAlarmOn(getActivity());
@@ -43,8 +48,7 @@ public class SettingsFragment extends BaseFragment {
 
     @OnClick(R.id.fragment_settings_licenses)
     public void onClickLicenses() {
-        Timber.i("Licenses");
-        // TODO
+        displayLicensesFragmentDialog();
     }
 
     @OnClick(R.id.fragment_settings_about)

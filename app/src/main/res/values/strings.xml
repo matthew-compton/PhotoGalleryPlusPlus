@@ -25,6 +25,9 @@
     <string name="settings_licenses">Licenses</string>
     <string name="settings_about">About</string>
 
+    <!-- Licenses -->
+    <string name="title_licenses">Open-Source Licenses</string>
+
     <!-- Polling -->
     <string name="polling_start">Poll for New Pictures</string>
     <string name="polling_stop">Stop Polling</string>
