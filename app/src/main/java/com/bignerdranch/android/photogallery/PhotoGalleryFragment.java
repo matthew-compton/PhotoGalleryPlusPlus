@@ -149,6 +149,10 @@ public class PhotoGalleryFragment extends VisibleFragment {
                         .commit();
                 updateItems();
                 return true;
+            case R.id.menu_item_history:
+                Intent i = new Intent(getActivity(), HistoryActivity.class);
+                startActivity(i);
+                return true;
             case R.id.menu_item_toggle_polling:
                 boolean shouldStartAlarm = !PollService.isServiceAlarmOn(getActivity());
                 PollService.setServiceAlarm(getActivity(), shouldStartAlarm);

@@ -24,6 +24,9 @@ android {
 }
 
 dependencies {
+    compile fileTree(dir: 'libs', include: 'Parse-*.jar')
+    compile 'com.parse.bolts:bolts-android:1.+'
+
     compile "com.android.support:support-v4:22.2.0"
     compile 'com.squareup.dagger:dagger:1.2.0'
     compile 'com.squareup.dagger:dagger-compiler:1.2.0'

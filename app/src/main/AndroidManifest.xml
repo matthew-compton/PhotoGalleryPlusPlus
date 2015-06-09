@@ -19,6 +19,7 @@
     <uses-permission android:name="com.bignerdranch.android.photogallery.PRIVATE"/>
 
     <application
+        android:name=".PhotoGalleryApplication"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
@@ -47,6 +48,9 @@
         <activity
             android:name=".PhotoPageActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity
+            android:name=".HistoryActivity"
+            />
 
         <service android:name=".PollService"/>
         <receiver android:name=".StartupReceiver">

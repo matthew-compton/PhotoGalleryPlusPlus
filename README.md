@@ -1,4 +1,8 @@
-Directions for Adding Facebook Messenger Sharing
+About
+---
+A PhotoGallery implementation that includes Facebook Messenger and Parse integration.
+
+Directions for Sharing Images with Facebook Messenger
 ---
 This is a step-by-step guide of adding a share-to-Facebook-Messenger functionality into PhotoGallery.
 
@@ -54,3 +58,10 @@ Step 6) Add Share Functionality
     MessengerUtils.shareToMessenger(getActivity(), REQUEST_CODE_SHARE_TO_MESSENGER, shareToMessengerParams);
 <code>
 
+Directions for Saving Recent Searches with Parse
+---
+This is a step-by-step guide of how to save recent searches using Parse.
+
+Step 1)
+---
+Go to the [Parse Documentation](https://www.parse.com/tutorials/using-the-local-datastore) and follow the instructions.

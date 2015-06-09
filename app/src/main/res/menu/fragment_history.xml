@@ -1,0 +1,26 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_sync"
+        android:showAsAction="ifRoom"
+        android:title="sync">
+    </item>
+
+    <item
+        android:id="@+id/action_logout"
+        android:showAsAction="never"
+        android:title="logout">
+    </item>
+
+    <item
+        android:id="@+id/action_login"
+        android:showAsAction="never"
+        android:title="login">
+    </item>
+    <item
+        android:id="@+id/menu_item_clear"
+        android:icon="@android:drawable/ic_menu_close_clear_cancel"
+        android:showAsAction="ifRoom"
+        android:title="Clear Searches"
+        />
+
+</menu>
