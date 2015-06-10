@@ -43,4 +43,9 @@ dependencies {
 
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'net.orfjackal.retrolambda:retrolambda:1.6.1'
+
+
+    testCompile 'com.android.support:support-v4:22.2.0'
+    testCompile 'junit:junit:4.12'
+    testCompile 'com.squareup.assertj:assertj-android:1.0.0'
 }
