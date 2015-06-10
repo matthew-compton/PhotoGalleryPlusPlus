@@ -5,4 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/grid_size"
     android:layout_gravity="center"
-    android:scaleType="centerCrop"/>
+    android:scaleType="centerCrop"
+    android:transitionName="@string/transition_photo"
+    />

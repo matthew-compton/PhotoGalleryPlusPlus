@@ -9,6 +9,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -58,16 +60,15 @@ public class GalleryFragment extends BaseFragment {
 
         setupAdapter();
 
-        mGridView.setOnItemClickListener((gridView, v, pos, id) -> {
+        mGridView.setOnItemClickListener((gridView, gridItem, position, id) -> {
             Intent intent = new Intent(getActivity(), PhotoActivity.class);
-            intent.putExtra(PhotoFragment.ARGS_PHOTO, mPhotos.get(pos));
-//            ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(
-//                    getActivity(),
-//                    mImageView,
-//                    getString(R.string.transition_animal_image)
-//            );
-//            ActivityCompat.startActivity(getActivity(), intent, options.toBundle());
-            startActivity(intent);
+            intent.putExtra(PhotoFragment.ARGS_PHOTO, mPhotos.get(position));
+            ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                    getActivity(),
+                    gridItem,
+                    getString(R.string.transition_photo)
+            );
+            ActivityCompat.startActivity(getActivity(), intent, options.toBundle());
         });
 
         return view;

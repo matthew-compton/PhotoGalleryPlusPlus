@@ -42,6 +42,9 @@
     <!-- Errors -->
     <string name="error_sync">Sync failed.</string>
 
+    <!-- Transitions -->
+    <string name="transition_photo">transition_photo</string>
+
     <!-- Metadata -->
     <string name="facebook_app_id">529545513865826</string>
 
