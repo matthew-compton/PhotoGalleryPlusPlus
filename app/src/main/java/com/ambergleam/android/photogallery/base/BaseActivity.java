@@ -77,7 +77,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             theme.resolveAttribute(R.attr.colorPrimary, typedValue, true);
             int color = typedValue.data;
 
-            Bitmap bm = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher);
+            Bitmap bm = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_overview);
             ActivityManager.TaskDescription td = new ActivityManager.TaskDescription(null, bm, color);
 
             setTaskDescription(td);
