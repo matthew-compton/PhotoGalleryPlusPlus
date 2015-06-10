@@ -9,6 +9,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -38,6 +39,7 @@ public class GalleryFragment extends BaseFragment {
 
     private ArrayList<Photo> mPhotos;
 
+    @InjectView(R.id.fragment_gallery_refresh) SwipeRefreshLayout mSwipeRefreshLayout;
     @InjectView(R.id.fragment_gallery_grid) GridView mGridView;
 
     public static GalleryFragment newInstance() {
@@ -127,6 +129,7 @@ public class GalleryFragment extends BaseFragment {
             );
             ActivityCompat.startActivity(getActivity(), intent, options.toBundle());
         });
+        mSwipeRefreshLayout.setOnRefreshListener(() -> search());
     }
 
     public void search() {
@@ -157,6 +160,7 @@ public class GalleryFragment extends BaseFragment {
                 PreferenceUtils.setLastResultId(getActivity(), resultId);
             }
             setupAdapter();
+            mSwipeRefreshLayout.setRefreshing(false);
         }
     }
 
