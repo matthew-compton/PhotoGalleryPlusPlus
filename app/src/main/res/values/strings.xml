@@ -12,12 +12,13 @@
 
     <!-- Photo -->
     <string name="title_photo">Photo</string>
+    <string name="menu_web">View in Browser</string>
 
     <!-- History -->
     <string name="title_history">History</string>
+    <string name="menu_sync">Sync</string>
+    <string name="menu_clear">Clear</string>
     <string name="history_none">None</string>
-    <string name="history_sync">Sync</string>
-    <string name="history_clear">Clear</string>
 
     <!-- Settings -->
     <string name="title_settings">Settings</string>
