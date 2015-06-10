@@ -1,6 +1,8 @@
 package com.ambergleam.android.photogallery.model;
 
-public class Photo {
+import java.io.Serializable;
+
+public class Photo implements Serializable {
 
     private String mCaption;
     private String mId;

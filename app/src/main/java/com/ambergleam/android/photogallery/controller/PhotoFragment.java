@@ -13,6 +13,7 @@ import android.widget.ImageView;
 
 import com.ambergleam.android.photogallery.R;
 import com.ambergleam.android.photogallery.base.BaseFragment;
+import com.ambergleam.android.photogallery.model.Photo;
 import com.facebook.messenger.MessengerUtils;
 import com.facebook.messenger.ShareToMessengerParams;
 import com.squareup.picasso.Picasso;
@@ -25,15 +26,15 @@ public class PhotoFragment extends BaseFragment {
 
     private static final int REQUEST_CODE_SHARE_TO_MESSENGER = 0;
 
-    public static final String ARGS_URL = "ARGS_URL";
+    public static final String ARGS_PHOTO = "ARGS_PHOTO";
 
     @InjectView(R.id.fragment_photo_image) ImageView mImageView;
 
-    private String mUrl;
+    private Photo mPhoto;
 
-    public static PhotoFragment newInstance(String url) {
+    public static PhotoFragment newInstance(Photo photo) {
         Bundle args = new Bundle();
-        args.putSerializable(ARGS_URL, url);
+        args.putSerializable(ARGS_PHOTO, photo);
 
         PhotoFragment fragment = new PhotoFragment();
         fragment.setArguments(args);
@@ -44,7 +45,7 @@ public class PhotoFragment extends BaseFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mUrl = getArguments().getString(ARGS_URL);
+        mPhoto = (Photo) getArguments().getSerializable(ARGS_PHOTO);
     }
 
     @Override
@@ -57,7 +58,7 @@ public class PhotoFragment extends BaseFragment {
 
     private void load() {
         Picasso.with(getActivity())
-                .load(mUrl)
+                .load(mPhoto.getUrl())
                 .into(mImageView);
     }
 

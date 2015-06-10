@@ -5,7 +5,6 @@ import android.app.SearchableInfo;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -60,11 +59,15 @@ public class GalleryFragment extends BaseFragment {
         setupAdapter();
 
         mGridView.setOnItemClickListener((gridView, v, pos, id) -> {
-            Photo item = mPhotos.get(pos);
-            Uri photoPageUri = Uri.parse(item.getUrl());
-            Intent i = new Intent(getActivity(), PhotoActivity.class);
-            i.setData(photoPageUri);
-            startActivity(i);
+            Intent intent = new Intent(getActivity(), PhotoActivity.class);
+            intent.putExtra(PhotoFragment.ARGS_PHOTO, mPhotos.get(pos));
+//            ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(
+//                    getActivity(),
+//                    mImageView,
+//                    getString(R.string.transition_animal_image)
+//            );
+//            ActivityCompat.startActivity(getActivity(), intent, options.toBundle());
+            startActivity(intent);
         });
 
         return view;
