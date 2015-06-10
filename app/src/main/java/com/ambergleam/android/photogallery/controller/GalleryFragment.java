@@ -130,6 +130,7 @@ public class GalleryFragment extends BaseFragment {
             ActivityCompat.startActivity(getActivity(), intent, options.toBundle());
         });
         mSwipeRefreshLayout.setOnRefreshListener(() -> search());
+        mSwipeRefreshLayout.setColorSchemeResources(R.color.primary, R.color.accent);
     }
 
     public void search() {
