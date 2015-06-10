@@ -12,6 +12,7 @@
 
     <!-- Photo -->
     <string name="title_photo">Photo</string>
+    <string name="menu_share">Share</string>
     <string name="menu_web">View in Browser</string>
 
     <!-- History -->

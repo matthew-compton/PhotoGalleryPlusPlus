@@ -7,6 +7,8 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.v4.view.MenuItemCompat;
+import android.support.v7.widget.ShareActionProvider;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -64,6 +66,15 @@ public class PhotoFragment extends BaseFragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.fragment_photo, menu);
+
+        MenuItem shareMenuItem = menu.findItem(R.id.menu_item_photo_share);
+        ShareActionProvider shareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(shareMenuItem);
+        Uri uri = Uri.parse(mPhoto.getUrl());
+
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("image/plain");
+        intent.putExtra(Intent.EXTRA_STREAM, uri);
+        shareActionProvider.setShareIntent(intent);
     }
 
     @Override
