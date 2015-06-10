@@ -7,7 +7,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
@@ -27,8 +26,8 @@ import com.ambergleam.android.photogallery.base.BaseFragment;
 import com.ambergleam.android.photogallery.model.Photo;
 import com.ambergleam.android.photogallery.util.PreferenceUtils;
 import com.ambergleam.android.photogallery.web.FlickrFetchr;
-import com.ambergleam.android.photogallery.web.ThumbnailDownloader;
 import com.facebook.appevents.AppEventsLogger;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -37,7 +36,6 @@ import butterknife.InjectView;
 
 public class GalleryFragment extends BaseFragment {
 
-    private ThumbnailDownloader mDownloaderThread;
     private ArrayList<Photo> mPhotos;
 
     @InjectView(R.id.fragment_gallery_grid) GridView mGridView;
@@ -50,7 +48,6 @@ public class GalleryFragment extends BaseFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         updatePhotos();
-        setupDownloaderThread();
     }
 
     @Override
@@ -87,18 +84,6 @@ public class GalleryFragment extends BaseFragment {
     }
 
     @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        mDownloaderThread.clearQueue();
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        mDownloaderThread.quit();
-    }
-
-    @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.fragment_gallery, menu);
@@ -131,11 +116,6 @@ public class GalleryFragment extends BaseFragment {
 
     public void updatePhotos() {
         new UpdatePhotosAsyncTask().execute();
-    }
-
-    private void setupDownloaderThread() {
-        mDownloaderThread = new ThumbnailDownloader(new Handler());
-        mDownloaderThread.start();
     }
 
     private void setupAdapter() {
@@ -189,7 +169,10 @@ public class GalleryFragment extends BaseFragment {
 
             Photo item = getItem(position);
             ImageView imageView = (ImageView) convertView.findViewById(R.id.grid_item_gallery_image);
-            mDownloaderThread.queueThumbnail(imageView, item.getUrl());
+
+            Picasso.with(getActivity())
+                    .load(item.getUrl())
+                    .into(imageView);
 
             return convertView;
         }
