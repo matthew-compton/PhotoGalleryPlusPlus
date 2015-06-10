@@ -36,10 +36,8 @@
     <string name="about_content">Copyright \u00A9 2015\nMatthew Compton\nAll Rights Reserved</string>
 
     <!-- Polling -->
-    <string name="polling_start">Poll for New Pictures</string>
-    <string name="polling_stop">Stop Polling</string>
-    <string name="new_pictures_title">New PhotoGallery Pictures</string>
-    <string name="new_pictures_text">You have new pictures in PhotoGallery.</string>
+    <string name="new_pictures_title">New Photo Gallery Pictures</string>
+    <string name="new_pictures_text">You have new pictures in Photo Gallery.</string>
 
     <!-- Transitions -->
     <string name="transition_photo">transition_photo</string>

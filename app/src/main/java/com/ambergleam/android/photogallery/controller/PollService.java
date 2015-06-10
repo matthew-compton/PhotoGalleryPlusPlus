@@ -25,7 +25,7 @@ import timber.log.Timber;
 
 public class PollService extends IntentService {
 
-    private static final int POLL_INTERVAL_MS = 1000 * 60 * 5; // 5 minutes
+    private static final int POLL_INTERVAL_MS = 1000 * 60 * 60; // 60 minutes
 
     public static final String PREF_IS_ALARM_ON = "isAlarmOn";
     public static final String ACTION_SHOW_NOTIFICATION = "com.bignerdranch.android.photogallery.SHOW_NOTIFICATION";

@@ -1,5 +1,7 @@
 package com.ambergleam.android.photogallery.controller;
 
+import android.app.SearchManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -103,7 +105,12 @@ public class HistoryFragment extends BaseFragment {
     }
 
     private void search(Search search) {
-        // TODO - repeat search
+        Intent intent = new Intent();
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.setClass(getActivity(), GalleryActivity.class);
+        intent.setAction(Intent.ACTION_SEARCH);
+        intent.putExtra(SearchManager.QUERY, search.getText());
+        startActivity(intent);
     }
 
     public class SearchHolder extends RecyclerView.ViewHolder {
