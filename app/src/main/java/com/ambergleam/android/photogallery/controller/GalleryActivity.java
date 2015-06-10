@@ -27,7 +27,7 @@ public class GalleryActivity extends BaseActivity {
         if (Intent.ACTION_SEARCH.equals(intent.getAction()) && fragment != null) {
             String query = intent.getStringExtra(SearchManager.QUERY);
             PreferenceUtils.setSearchQuery(this, query);
-            ParseUtils.addSearch(query);
+            ParseUtils.saveSearchQuery(query);
             fragment.search();
         }
     }

@@ -4,8 +4,8 @@
              android:layout_width="match_parent"
              android:layout_height="match_parent">
 
-    <ListView
-        android:id="@+id/fragment_history_list"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/fragment_history_recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone"

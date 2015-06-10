@@ -41,9 +41,6 @@
     <string name="new_pictures_title">New PhotoGallery Pictures</string>
     <string name="new_pictures_text">You have new pictures in PhotoGallery.</string>
 
-    <!-- Errors -->
-    <string name="error_sync">Sync failed.</string>
-
     <!-- Transitions -->
     <string name="transition_photo">transition_photo</string>
 

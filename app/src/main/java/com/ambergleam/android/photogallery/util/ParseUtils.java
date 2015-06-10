@@ -6,7 +6,7 @@ import com.parse.ParseUser;
 
 public class ParseUtils {
 
-    public static void addSearch(String query) {
+    public static void saveSearchQuery(String query) {
         Search search = new Search();
         search.setUuidString();
         search.setText(query);
