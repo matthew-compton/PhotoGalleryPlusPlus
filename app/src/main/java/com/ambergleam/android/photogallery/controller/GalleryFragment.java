@@ -7,7 +7,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.SearchView;
@@ -33,6 +32,7 @@ import java.util.ArrayList;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import timber.log.Timber;
 
 public class GalleryFragment extends BaseFragment {
 
@@ -47,27 +47,15 @@ public class GalleryFragment extends BaseFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        updatePhotos();
+        search();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_gallery, container, false);
         ButterKnife.inject(this, view);
-
         setupAdapter();
-
-        mGridView.setOnItemClickListener((gridView, gridItem, position, id) -> {
-            Intent intent = new Intent(getActivity(), PhotoActivity.class);
-            intent.putExtra(PhotoFragment.ARGS_PHOTO, mPhotos.get(position));
-            ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(
-                    getActivity(),
-                    gridItem,
-                    getString(R.string.transition_photo)
-            );
-            ActivityCompat.startActivity(getActivity(), intent, options.toBundle());
-        });
-
+        setupListeners();
         return view;
     }
 
@@ -87,8 +75,14 @@ public class GalleryFragment extends BaseFragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.fragment_gallery, menu);
-        MenuItem searchItem = menu.findItem(R.id.menu_item_gallery_search);
-        SearchView searchView = (SearchView) searchItem.getActionView();
+
+        MenuItem menuItem = menu.findItem(R.id.menu_item_gallery_search);
+        SearchView searchView = (SearchView) menuItem.getActionView();
+        searchView.setOnCloseListener(() -> {
+            PreferenceUtils.setSearchQuery(getActivity(), null);
+            return false;
+        });
+
         SearchManager searchManager = (SearchManager) getActivity().getSystemService(Context.SEARCH_SERVICE);
         ComponentName name = getActivity().getComponentName();
         SearchableInfo searchInfo = searchManager.getSearchableInfo(name);
@@ -98,9 +92,6 @@ public class GalleryFragment extends BaseFragment {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.menu_item_gallery_search:
-                getActivity().onSearchRequested();
-                return true;
             case R.id.menu_item_gallery_history:
                 Intent intentHistory = new Intent(getActivity(), HistoryActivity.class);
                 startActivity(intentHistory);
@@ -114,33 +105,47 @@ public class GalleryFragment extends BaseFragment {
         }
     }
 
-    public void updatePhotos() {
-        new UpdatePhotosAsyncTask().execute();
-    }
-
     private void setupAdapter() {
         if (getActivity() == null || mGridView == null) {
             return;
         }
         if (mPhotos != null) {
-            mGridView.setAdapter(new GalleryItemAdapter(mPhotos));
+            mGridView.setAdapter(new PhotoGridViewAdapter(mPhotos));
         } else {
             mGridView.setAdapter(null);
         }
     }
 
-    private class UpdatePhotosAsyncTask extends AsyncTask<Void, Void, ArrayList<Photo>> {
+    private void setupListeners() {
+        mGridView.setOnItemClickListener((gridView, gridItem, position, id) -> {
+            Intent intent = new Intent(getActivity(), PhotoActivity.class);
+            intent.putExtra(PhotoFragment.ARGS_PHOTO, mPhotos.get(position));
+            ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                    getActivity(),
+                    gridItem,
+                    getString(R.string.transition_photo)
+            );
+            ActivityCompat.startActivity(getActivity(), intent, options.toBundle());
+        });
+    }
+
+    public void search() {
+        new SearchAsyncTask().execute();
+    }
+
+    private class SearchAsyncTask extends AsyncTask<Void, Void, ArrayList<Photo>> {
 
         @Override
         protected ArrayList<Photo> doInBackground(Void... params) {
             if (getActivity() == null) {
                 return new ArrayList<>();
             }
-            String query = PreferenceManager.getDefaultSharedPreferences(getActivity()).getString(FlickrFetchr.PREF_SEARCH_QUERY, null);
+            String query = PreferenceUtils.getSearchQuery(getActivity());
+            Timber.i("Search Query: " + query);
             if (query != null) {
-                return new FlickrFetchr().searchPhotos(query);
+                return new FlickrFetchr().getPhotos(query);
             } else {
-                return new FlickrFetchr().getRecentPhotos();
+                return new FlickrFetchr().getPhotos();
             }
         }
 
@@ -155,9 +160,9 @@ public class GalleryFragment extends BaseFragment {
         }
     }
 
-    private class GalleryItemAdapter extends ArrayAdapter<Photo> {
+    private class PhotoGridViewAdapter extends ArrayAdapter<Photo> {
 
-        public GalleryItemAdapter(ArrayList<Photo> items) {
+        public PhotoGridViewAdapter(ArrayList<Photo> items) {
             super(getActivity(), 0, items);
         }
 
@@ -176,6 +181,7 @@ public class GalleryFragment extends BaseFragment {
 
             return convertView;
         }
+
     }
 
 }

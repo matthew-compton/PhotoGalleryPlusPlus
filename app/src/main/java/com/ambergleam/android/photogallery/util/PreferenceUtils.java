@@ -7,6 +7,10 @@ import com.ambergleam.android.photogallery.web.FlickrFetchr;
 
 public class PreferenceUtils {
 
+    public static String getSearchQuery(Context context) {
+        return PreferenceManager.getDefaultSharedPreferences(context).getString(FlickrFetchr.PREF_SEARCH_QUERY, null);
+    }
+
     public static void setSearchQuery(Context context, String query) {
         PreferenceManager.getDefaultSharedPreferences(context)
                 .edit()

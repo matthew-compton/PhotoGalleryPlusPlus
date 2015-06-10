@@ -59,7 +59,7 @@ public class FlickrFetchr {
         return new String(getUrlBytes(urlSpec));
     }
 
-    public ArrayList<Photo> getRecentPhotos() {
+    public ArrayList<Photo> getPhotos() {
         String url = Uri.parse(ENDPOINT).buildUpon()
                 .appendQueryParameter("method", METHOD_GET_RECENT)
                 .appendQueryParameter("api_key", PhotoGalleryConstants.API_KEY)
@@ -68,7 +68,7 @@ public class FlickrFetchr {
         return downloadGalleryItems(url);
     }
 
-    public ArrayList<Photo> searchPhotos(String query) {
+    public ArrayList<Photo> getPhotos(String query) {
         String url = Uri.parse(ENDPOINT).buildUpon()
                 .appendQueryParameter("method", METHOD_SEARCH)
                 .appendQueryParameter("api_key", PhotoGalleryConstants.API_KEY)

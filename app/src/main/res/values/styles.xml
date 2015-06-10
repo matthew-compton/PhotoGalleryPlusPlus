@@ -10,7 +10,6 @@
 
         <!-- General -->
         <item name="android:windowBackground">@android:color/white</item>
-
     </style>
 
 </resources>
