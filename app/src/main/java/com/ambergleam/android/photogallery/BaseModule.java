@@ -8,7 +8,8 @@ import com.ambergleam.android.photogallery.controller.PhotoActivity;
 import com.ambergleam.android.photogallery.controller.PhotoFragment;
 import com.ambergleam.android.photogallery.controller.SettingsActivity;
 import com.ambergleam.android.photogallery.controller.SettingsFragment;
-import com.ambergleam.android.photogallery.manager.ParseDataManager;
+import com.ambergleam.android.photogallery.manager.BroadcastManager;
+import com.ambergleam.android.photogallery.manager.DataManager;
 
 import javax.inject.Singleton;
 
@@ -17,6 +18,7 @@ import dagger.Provides;
 
 @Module(
         injects = {
+                BaseApplication.class,
                 BaseActivity.class,
                 BaseFragment.class,
                 GalleryActivity.class,
@@ -39,8 +41,14 @@ public class BaseModule {
 
     @Provides
     @Singleton
-    public ParseDataManager provideDataManager() {
-        return new ParseDataManager();
+    public DataManager provideDataManager() {
+        return new DataManager();
+    }
+
+    @Provides
+    @Singleton
+    public BroadcastManager provideBroadcastManager() {
+        return new BroadcastManager(mApplication);
     }
 
 }

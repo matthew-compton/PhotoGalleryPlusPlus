@@ -1,5 +1,7 @@
 package com.ambergleam.android.photogallery.manager;
 
+import com.ambergleam.android.photogallery.callbacks.ClearSearchesCallback;
+import com.ambergleam.android.photogallery.callbacks.LoadSearchesCallback;
 import com.ambergleam.android.photogallery.model.Search;
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -11,12 +13,12 @@ import javax.inject.Singleton;
 import timber.log.Timber;
 
 @Singleton
-public class ParseDataManager {
+public class DataManager {
 
     public static final String GROUP_NAME_SEARCH = "ALL_SEARCHES";
 
     @Inject
-    public ParseDataManager() {
+    public DataManager() {
     }
 
     public static void registerParseObjects() {

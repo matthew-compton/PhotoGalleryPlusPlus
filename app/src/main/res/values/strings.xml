@@ -28,12 +28,16 @@
     <string name="settings_about">About</string>
     <string name="settings_version">Version</string>
 
-    <!-- Licenses -->
+    <!-- Licenses Dialog -->
     <string name="title_licenses">Open-Source Licenses</string>
 
-    <!-- About -->
+    <!-- About Dialog -->
     <string name="title_about">About</string>
     <string name="about_content">Copyright \u00A9 2015\nMatthew Compton\nAll Rights Reserved</string>
+
+    <!-- Connection Dialog-->
+    <string name="title_connection">No Network Connection</string>
+    <string name="connection_content">Unfortunately, we\'re having trouble reaching the network.\n\nPlease check your Internet connection.</string>
 
     <!-- Polling -->
     <string name="new_pictures_title">New Photo Gallery Pictures</string>

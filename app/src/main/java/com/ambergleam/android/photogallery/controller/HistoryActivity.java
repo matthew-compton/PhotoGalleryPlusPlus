@@ -26,4 +26,9 @@ public class HistoryActivity extends BaseActivity {
         return false;
     }
 
+    @Override
+    protected boolean showsNetworkConnectionDialog() {
+        return false;
+    }
+
 }

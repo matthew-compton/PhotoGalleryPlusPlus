@@ -30,4 +30,9 @@ public class PhotoActivity extends BaseActivity {
         return false;
     }
 
+    @Override
+    protected boolean showsNetworkConnectionDialog() {
+        return true;
+    }
+
 }

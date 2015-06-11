@@ -1,4 +1,4 @@
-package com.ambergleam.android.photogallery.manager;
+package com.ambergleam.android.photogallery.callbacks;
 
 public interface ClearSearchesCallback {
 

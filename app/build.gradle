@@ -51,5 +51,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
     testCompile 'com.squareup.assertj:assertj-android:1.0.0'
 
-    retrolambdaConfig 'net.orfjackal.retrolambda:retrolambda:1.6.1'
+    retrolambdaConfig 'net.orfjackal.retrolambda:retrolambda:2.0.3'
 }

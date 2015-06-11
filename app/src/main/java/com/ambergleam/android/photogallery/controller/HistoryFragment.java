@@ -15,9 +15,9 @@ import android.widget.TextView;
 
 import com.ambergleam.android.photogallery.BaseFragment;
 import com.ambergleam.android.photogallery.R;
-import com.ambergleam.android.photogallery.manager.ClearSearchesCallback;
-import com.ambergleam.android.photogallery.manager.ParseDataManager;
-import com.ambergleam.android.photogallery.manager.LoadSearchesCallback;
+import com.ambergleam.android.photogallery.callbacks.ClearSearchesCallback;
+import com.ambergleam.android.photogallery.manager.DataManager;
+import com.ambergleam.android.photogallery.callbacks.LoadSearchesCallback;
 import com.ambergleam.android.photogallery.model.Search;
 
 import java.util.ArrayList;
@@ -31,7 +31,7 @@ import butterknife.InjectView;
 
 public class HistoryFragment extends BaseFragment implements LoadSearchesCallback, ClearSearchesCallback {
 
-    @Inject ParseDataManager mParseDataManager;
+    @Inject DataManager mDataManager;
 
     @InjectView(R.id.fragment_history_empty) TextView mEmptyView;
     @InjectView(R.id.fragment_history_recycler) RecyclerView mRecyclerView;
@@ -53,7 +53,7 @@ public class HistoryFragment extends BaseFragment implements LoadSearchesCallbac
     @Override
     public void onResume() {
         super.onResume();
-        mParseDataManager.loadSearches(this);
+        mDataManager.loadSearches(this);
     }
 
     @Override
@@ -66,7 +66,7 @@ public class HistoryFragment extends BaseFragment implements LoadSearchesCallbac
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_item_history_clear:
-                mParseDataManager.clearSearches(this);
+                mDataManager.clearSearches(this);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

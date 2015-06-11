@@ -2,10 +2,10 @@ package com.ambergleam.android.photogallery;
 
 import android.annotation.TargetApi;
 import android.app.ActivityManager;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
+import android.content.IntentFilter;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -13,20 +13,21 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Base64;
 import android.util.TypedValue;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewTreeObserver;
 
+import com.ambergleam.android.photogallery.manager.BroadcastManager;
 import com.ambergleam.android.photogallery.util.AndroidUtils;
+import com.ambergleam.android.photogallery.util.ConnectionUtils;
+import com.ambergleam.android.photogallery.util.InjectionUtils;
 
 import java.lang.reflect.Field;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -36,6 +37,8 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     @InjectView(R.id.activity_fragment_toolbar) public Toolbar mToolbar;
 
+    private BroadcastReceiver mConnectionUpdateReceiver;
+
     protected abstract Fragment createFragment();
 
     protected abstract boolean setupHomeButton();
@@ -44,28 +47,45 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     protected abstract boolean postponeReenter();
 
+    protected abstract boolean showsNetworkConnectionDialog();
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment);
-        BaseApplication.get(this).inject(this);
-        ButterKnife.inject(this);
-
-        printKeyHash();
+        setupInjection();
         setupToolbar();
         setupOverflowButton();
         setupOverviewScreen();
         setupInitialFragment();
         setupEnterTransition();
+        setupBroadcastReceivers();
     }
 
-    protected void setupToolbar() {
+    @Override
+    protected void onResume() {
+        super.onResume();
+        registerBroadcastReceivers();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        unregisterBroadcastReceivers();
+    }
+
+    private void setupInjection() {
+        InjectionUtils.inject(this);
+        ButterKnife.inject(this);
+    }
+
+    private void setupToolbar() {
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(setupHomeButton());
         getSupportActionBar().setHomeButtonEnabled(setupHomeButton());
     }
 
-    protected void setupOverflowButton() {
+    private void setupOverflowButton() {
         try {
             ViewConfiguration config = ViewConfiguration.get(this);
             Field menuKeyField = ViewConfiguration.class.getDeclaredField("sHasPermanentMenuKey");
@@ -80,7 +100,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
-    protected void setupOverviewScreen() {
+    private void setupOverviewScreen() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             TypedValue typedValue = new TypedValue();
             Resources.Theme theme = getTheme();
@@ -106,22 +126,37 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
-    private void printKeyHash() {
-        try {
-            PackageInfo info = getPackageManager().getPackageInfo(
-                    getPackageName(),
-                    PackageManager.GET_SIGNATURES
-            );
-            for (Signature signature : info.signatures) {
-                MessageDigest md = MessageDigest.getInstance("SHA");
-                md.update(signature.toByteArray());
-                Timber.d("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT));
+    private void setupBroadcastReceivers() {
+        mConnectionUpdateReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                ConnectionUtils.checkForConnection(BaseActivity.this);
             }
-        } catch (PackageManager.NameNotFoundException e) {
-            Timber.d("KeyHash:", e.toString());
-        } catch (NoSuchAlgorithmException e) {
-            Timber.d("KeyHash:", e.toString());
+        };
+    }
+
+    private void registerBroadcastReceivers() {
+        if (showsNetworkConnectionDialog()) {
+            registerConnectionUpdateReceiver();
+            ConnectionUtils.checkForConnection(this);
         }
+    }
+
+    private void unregisterBroadcastReceivers() {
+        if (showsNetworkConnectionDialog()) {
+            unregisterConnectionUpdateReceiver();
+        }
+    }
+
+    private void registerConnectionUpdateReceiver() {
+        LocalBroadcastManager broadcastManager = LocalBroadcastManager.getInstance(this);
+        IntentFilter connectionFilter = new IntentFilter(BroadcastManager.BROADCAST_ACTION_CONNECTION_UPDATE);
+        broadcastManager.registerReceiver(mConnectionUpdateReceiver, connectionFilter);
+    }
+
+    private void unregisterConnectionUpdateReceiver() {
+        LocalBroadcastManager broadcastManager = LocalBroadcastManager.getInstance(this);
+        broadcastManager.unregisterReceiver(mConnectionUpdateReceiver);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)

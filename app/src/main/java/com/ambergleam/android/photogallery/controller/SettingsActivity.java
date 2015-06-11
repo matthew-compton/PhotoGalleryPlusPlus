@@ -26,4 +26,9 @@ public class SettingsActivity extends BaseActivity {
         return false;
     }
 
+    @Override
+    protected boolean showsNetworkConnectionDialog() {
+        return false;
+    }
+
 }

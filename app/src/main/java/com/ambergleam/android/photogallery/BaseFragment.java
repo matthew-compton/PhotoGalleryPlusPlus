@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
 import com.ambergleam.android.photogallery.controller.PollService;
+import com.ambergleam.android.photogallery.util.InjectionUtils;
 
 import timber.log.Timber;
 
@@ -19,7 +20,7 @@ public abstract class BaseFragment extends Fragment {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
         setHasOptionsMenu(true);
-        BaseApplication.get(getActivity()).inject(this);
+        setupInjection();
     }
 
     @Override
@@ -33,6 +34,10 @@ public abstract class BaseFragment extends Fragment {
     public void onPause() {
         super.onPause();
         getActivity().unregisterReceiver(mOnShowNotification);
+    }
+
+    private void setupInjection() {
+        InjectionUtils.inject(getActivity(), this);
     }
 
     private BroadcastReceiver mOnShowNotification = new BroadcastReceiver() {
