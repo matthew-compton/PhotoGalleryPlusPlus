@@ -28,6 +28,7 @@ android {
     lintOptions {
         abortOnError false
     }
+
 }
 
 dependencies {
@@ -39,6 +40,7 @@ dependencies {
     compile 'com.github.yongjhih:parse:1.9.2'
     compile 'com.parse.bolts:bolts-android:1.2.0'
     compile 'com.facebook.android:facebook-android-sdk:4.0.0'
+    compile 'net.orfjackal.retrolambda:retrolambda:1.6.1'
 
     compile 'com.jakewharton.timber:timber:2.7.1'
     compile 'com.jakewharton:butterknife:6.1.0'
