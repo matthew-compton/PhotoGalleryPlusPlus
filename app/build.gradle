@@ -41,10 +41,7 @@ dependencies {
 
     compile 'com.jakewharton.timber:timber:2.7.1'
     compile 'com.jakewharton:butterknife:6.1.0'
-
     compile 'com.squareup.picasso:picasso:2.5.2'
-    compile 'net.orfjackal.retrolambda:retrolambda:1.6.1'
-
 
     testCompile 'com.android.support:support-v4:22.2.0'
     testCompile 'junit:junit:4.12'
