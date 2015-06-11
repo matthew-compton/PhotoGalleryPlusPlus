@@ -28,7 +28,7 @@ public class PhotoGalleryApplication extends Application {
     private void setupParse() {
         ParseObject.registerSubclass(Search.class);
         Parse.enableLocalDatastore(this);
-        Parse.initialize(this, "YOUR_APP_ID", "YOUR_CLIENT_KEY");
+        Parse.initialize(this, PhotoGalleryConstants.PARSE_APP_ID, PhotoGalleryConstants.PARSE_CLIENT_KEY);
         ParseUser.enableAutomaticUser();
         ParseACL defaultACL = new ParseACL();
         ParseACL.setDefaultACL(defaultACL, true);
