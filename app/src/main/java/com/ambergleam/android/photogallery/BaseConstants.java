@@ -1,6 +1,6 @@
 package com.ambergleam.android.photogallery;
 
-public class PhotoGalleryConstants {
+public class BaseConstants {
 
     public static final String FLICKR_API_KEY = "c9a3e695beb9b51c39ced23cbf8036d7";
     public static final String PARSE_APP_ID = "P4csZtJSePHADoB4HEbZxKKgtVOHy2iQZZmrGDAW";

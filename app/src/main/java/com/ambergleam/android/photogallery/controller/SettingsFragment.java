@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.ambergleam.android.photogallery.BuildConfig;
 import com.ambergleam.android.photogallery.R;
-import com.ambergleam.android.photogallery.base.BaseFragment;
+import com.ambergleam.android.photogallery.BaseFragment;
 import com.ambergleam.android.photogallery.dialog.AboutDialogFragment;
 import com.ambergleam.android.photogallery.dialog.LicensesDialogFragment;
 

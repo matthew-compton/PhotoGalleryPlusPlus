@@ -22,7 +22,7 @@ import android.widget.GridView;
 import android.widget.ImageView;
 
 import com.ambergleam.android.photogallery.R;
-import com.ambergleam.android.photogallery.base.BaseFragment;
+import com.ambergleam.android.photogallery.BaseFragment;
 import com.ambergleam.android.photogallery.model.Photo;
 import com.ambergleam.android.photogallery.util.PreferenceUtils;
 import com.ambergleam.android.photogallery.web.FlickrFetchr;

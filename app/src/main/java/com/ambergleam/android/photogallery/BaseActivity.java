@@ -1,4 +1,4 @@
-package com.ambergleam.android.photogallery.base;
+package com.ambergleam.android.photogallery;
 
 import android.annotation.TargetApi;
 import android.app.ActivityManager;
@@ -22,7 +22,6 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewTreeObserver;
 
-import com.ambergleam.android.photogallery.R;
 import com.ambergleam.android.photogallery.util.AndroidUtils;
 
 import java.lang.reflect.Field;
@@ -49,6 +48,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment);
+        BaseApplication.get(this).inject(this);
         ButterKnife.inject(this);
 
         printKeyHash();

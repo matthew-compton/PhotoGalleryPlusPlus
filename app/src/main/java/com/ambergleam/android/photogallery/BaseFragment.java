@@ -1,4 +1,4 @@
-package com.ambergleam.android.photogallery.base;
+package com.ambergleam.android.photogallery;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;
@@ -19,6 +19,7 @@ public abstract class BaseFragment extends Fragment {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
         setHasOptionsMenu(true);
+        BaseApplication.get(getActivity()).inject(this);
     }
 
     @Override

@@ -3,7 +3,7 @@ package com.ambergleam.android.photogallery.controller;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 
-import com.ambergleam.android.photogallery.base.BaseActivity;
+import com.ambergleam.android.photogallery.BaseActivity;
 import com.ambergleam.android.photogallery.model.Photo;
 
 public class PhotoActivity extends BaseActivity {

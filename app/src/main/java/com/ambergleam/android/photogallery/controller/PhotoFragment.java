@@ -18,8 +18,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.ambergleam.android.photogallery.R;
-import com.ambergleam.android.photogallery.base.BaseActivity;
-import com.ambergleam.android.photogallery.base.BaseFragment;
+import com.ambergleam.android.photogallery.BaseActivity;
+import com.ambergleam.android.photogallery.BaseFragment;
 import com.ambergleam.android.photogallery.model.Photo;
 import com.facebook.messenger.MessengerUtils;
 import com.facebook.messenger.ShareToMessengerParams;

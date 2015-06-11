@@ -13,21 +13,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.ambergleam.android.photogallery.PhotoGalleryApplication;
+import com.ambergleam.android.photogallery.BaseFragment;
 import com.ambergleam.android.photogallery.R;
-import com.ambergleam.android.photogallery.base.BaseFragment;
+import com.ambergleam.android.photogallery.manager.ClearSearchesCallback;
+import com.ambergleam.android.photogallery.manager.DataManager;
+import com.ambergleam.android.photogallery.manager.LoadSearchesCallback;
 import com.ambergleam.android.photogallery.model.Search;
-import com.parse.ParseObject;
-import com.parse.ParseQuery;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
-public class HistoryFragment extends BaseFragment {
+public class HistoryFragment extends BaseFragment implements LoadSearchesCallback, ClearSearchesCallback {
+
+    @Inject DataManager mDataManager;
 
     @InjectView(R.id.fragment_history_empty) TextView mEmptyView;
     @InjectView(R.id.fragment_history_recycler) RecyclerView mRecyclerView;
@@ -49,7 +53,7 @@ public class HistoryFragment extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
-        refresh();
+        mDataManager.loadSearches(this);
     }
 
     @Override
@@ -62,7 +66,7 @@ public class HistoryFragment extends BaseFragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_item_history_clear:
-                clear();
+                mDataManager.clearSearches(this);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -86,24 +90,6 @@ public class HistoryFragment extends BaseFragment {
         }
     }
 
-    private void refresh() {
-        ParseQuery<Search> query = Search.getQuery();
-        query.fromLocalDatastore();
-        query.findInBackground((list, e) -> {
-            Collections.reverse(list);
-            mAdapter.setList(list);
-            mAdapter.notifyDataSetChanged();
-            updateUI();
-        });
-    }
-
-    private void clear() {
-        ParseObject.unpinAllInBackground(PhotoGalleryApplication.getGroupNameSearch());
-        mAdapter.setList(new ArrayList<>());
-        mAdapter.notifyDataSetChanged();
-        updateUI();
-    }
-
     private void search(Search search) {
         Intent intent = new Intent();
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -111,6 +97,21 @@ public class HistoryFragment extends BaseFragment {
         intent.setAction(Intent.ACTION_SEARCH);
         intent.putExtra(SearchManager.QUERY, search.getText());
         startActivity(intent);
+    }
+
+    @Override
+    public void onSearchesLoaded(List<Search> searchList) {
+        Collections.reverse(searchList);
+        mAdapter.setList(searchList);
+        mAdapter.notifyDataSetChanged();
+        updateUI();
+    }
+
+    @Override
+    public void onSearchesCleared() {
+        mAdapter.setList(new ArrayList<>());
+        mAdapter.notifyDataSetChanged();
+        updateUI();
     }
 
     public class SearchHolder extends RecyclerView.ViewHolder {

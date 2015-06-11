@@ -2,7 +2,7 @@ package com.ambergleam.android.photogallery.web;
 
 import android.net.Uri;
 
-import com.ambergleam.android.photogallery.PhotoGalleryConstants;
+import com.ambergleam.android.photogallery.BaseConstants;
 import com.ambergleam.android.photogallery.model.Photo;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -63,7 +63,7 @@ public class FlickrFetchr {
     public ArrayList<Photo> getPhotos() {
         String url = Uri.parse(ENDPOINT).buildUpon()
                 .appendQueryParameter("method", METHOD_GET_RECENT)
-                .appendQueryParameter("api_key", PhotoGalleryConstants.FLICKR_API_KEY)
+                .appendQueryParameter("api_key", BaseConstants.FLICKR_API_KEY)
                 .appendQueryParameter(PARAM_EXTRAS, EXTRA_SMALL_URL + "," + EXTRA_LARGE_URL)
                 .build().toString();
         return downloadGalleryItems(url);
@@ -72,7 +72,7 @@ public class FlickrFetchr {
     public ArrayList<Photo> getPhotos(String query) {
         String url = Uri.parse(ENDPOINT).buildUpon()
                 .appendQueryParameter("method", METHOD_SEARCH)
-                .appendQueryParameter("api_key", PhotoGalleryConstants.FLICKR_API_KEY)
+                .appendQueryParameter("api_key", BaseConstants.FLICKR_API_KEY)
                 .appendQueryParameter(PARAM_EXTRAS, EXTRA_SMALL_URL + "," + EXTRA_LARGE_URL)
                 .appendQueryParameter(PARAM_TEXT, query)
                 .build().toString();
