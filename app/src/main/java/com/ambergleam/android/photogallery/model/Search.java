@@ -9,21 +9,24 @@ import java.util.UUID;
 @ParseClassName("Search")
 public class Search extends ParseObject {
 
+    public static final String SEARCH_UUID = "uuid";
+    public static final String SEARCH_TEXT = "text";
+
     public String getText() {
-        return getString("text");
+        return getString(SEARCH_TEXT);
     }
 
     public void setText(String text) {
-        put("text", text);
+        put(SEARCH_TEXT, text);
     }
 
     public void setUuidString() {
         UUID uuid = UUID.randomUUID();
-        put("uuid", uuid.toString());
+        put(SEARCH_UUID, uuid.toString());
     }
 
     public String getUuidString() {
-        return getString("uuid");
+        return getString(SEARCH_UUID);
     }
 
     public static ParseQuery<Search> getQuery() {

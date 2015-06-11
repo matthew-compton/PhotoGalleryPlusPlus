@@ -11,12 +11,12 @@ import javax.inject.Singleton;
 import timber.log.Timber;
 
 @Singleton
-public class DataManager {
+public class ParseDataManager {
 
     public static final String GROUP_NAME_SEARCH = "ALL_SEARCHES";
 
     @Inject
-    public DataManager() {
+    public ParseDataManager() {
     }
 
     public static void registerParseObjects() {
@@ -49,7 +49,7 @@ public class DataManager {
     public boolean checkSearchQueryExists(String text) {
         ParseQuery<Search> query = Search.getQuery();
         query.fromLocalDatastore();
-        query.whereEqualTo("text", text);
+        query.whereEqualTo(Search.SEARCH_TEXT, text);
         try {
             if (query.getFirst() != null) {
                 return true;

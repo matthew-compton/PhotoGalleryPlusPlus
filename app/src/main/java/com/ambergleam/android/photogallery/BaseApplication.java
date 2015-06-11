@@ -3,7 +3,7 @@ package com.ambergleam.android.photogallery;
 import android.app.Application;
 import android.content.Context;
 
-import com.ambergleam.android.photogallery.manager.DataManager;
+import com.ambergleam.android.photogallery.manager.ParseDataManager;
 import com.parse.Parse;
 import com.parse.ParseACL;
 import com.parse.ParseUser;
@@ -37,7 +37,7 @@ public class BaseApplication extends Application {
         ParseUser.enableAutomaticUser();
         ParseACL defaultACL = new ParseACL();
         ParseACL.setDefaultACL(defaultACL, true);
-        DataManager.registerParseObjects();
+        ParseDataManager.registerParseObjects();
     }
 
     public static BaseApplication get(Context context) {

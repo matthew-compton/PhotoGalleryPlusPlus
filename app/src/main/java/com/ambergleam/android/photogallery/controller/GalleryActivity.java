@@ -6,14 +6,14 @@ import android.support.v4.app.Fragment;
 
 import com.ambergleam.android.photogallery.BaseActivity;
 import com.ambergleam.android.photogallery.R;
-import com.ambergleam.android.photogallery.manager.DataManager;
+import com.ambergleam.android.photogallery.manager.ParseDataManager;
 import com.ambergleam.android.photogallery.util.PreferenceUtils;
 
 import javax.inject.Inject;
 
 public class GalleryActivity extends BaseActivity {
 
-    @Inject DataManager mDataManager;
+    @Inject ParseDataManager mParseDataManager;
 
     @Override
     public Fragment createFragment() {
@@ -41,7 +41,7 @@ public class GalleryActivity extends BaseActivity {
         if (Intent.ACTION_SEARCH.equals(intent.getAction()) && fragment != null) {
             String query = intent.getStringExtra(SearchManager.QUERY);
             PreferenceUtils.setSearchQuery(this, query);
-            mDataManager.saveSearch(query);
+            mParseDataManager.saveSearch(query);
             fragment.search();
         }
     }

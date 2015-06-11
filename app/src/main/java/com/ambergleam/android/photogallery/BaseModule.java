@@ -8,7 +8,7 @@ import com.ambergleam.android.photogallery.controller.PhotoActivity;
 import com.ambergleam.android.photogallery.controller.PhotoFragment;
 import com.ambergleam.android.photogallery.controller.SettingsActivity;
 import com.ambergleam.android.photogallery.controller.SettingsFragment;
-import com.ambergleam.android.photogallery.manager.DataManager;
+import com.ambergleam.android.photogallery.manager.ParseDataManager;
 
 import javax.inject.Singleton;
 
@@ -39,8 +39,8 @@ public class BaseModule {
 
     @Provides
     @Singleton
-    public DataManager provideDataManager() {
-        return new DataManager();
+    public ParseDataManager provideDataManager() {
+        return new ParseDataManager();
     }
 
 }
