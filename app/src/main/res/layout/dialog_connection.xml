@@ -3,10 +3,7 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical"
-              android:paddingBottom="@dimen/padding_medium"
-              android:paddingLeft="@dimen/padding_large"
-              android:paddingRight="@dimen/padding_large"
-              android:paddingTop="@dimen/padding_medium">
+              android:padding="@dimen/padding_medium">
 
     <TextView
         android:layout_width="match_parent"
@@ -14,7 +11,7 @@
         android:layout_gravity="center"
         android:layout_margin="@dimen/padding_small"
         android:gravity="center"
-        android:text="@string/about_content"
+        android:text="@string/connection_content"
         android:textColor="@color/primary_text"
         android:textSize="@dimen/text_medium"
         />
@@ -25,7 +22,7 @@
         android:layout_gravity="center"
         android:layout_margin="@dimen/padding_small"
         android:gravity="center"
-        android:src="@drawable/ic_android"
+        android:src="@drawable/ic_network_off"
         android:tint="@color/primary"
         />
 

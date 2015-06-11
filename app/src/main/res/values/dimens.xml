@@ -6,7 +6,7 @@
     <!-- Font Sizes -->
     <dimen name="text_small">8sp</dimen>
     <dimen name="text_medium">16sp</dimen>
-    <dimen name="text_large">32sp</dimen>
+    <dimen name="text_large">24sp</dimen>
 
     <!-- Padding Sizes -->
     <dimen name="padding_small">8dp</dimen>

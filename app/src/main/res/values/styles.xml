@@ -12,4 +12,13 @@
         <item name="android:windowBackground">@android:color/white</item>
     </style>
 
+    <!-- Dialogs -->
+    <style name="BaseDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowTitleStyle">@style/CenteredWindowTitle</item>
+    </style>
+
+    <style name="CenteredWindowTitle" parent="@android:style/TextAppearance.DialogWindowTitle">
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+
 </resources>

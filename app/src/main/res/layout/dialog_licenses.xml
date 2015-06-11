@@ -1,6 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WebView
+<LinearLayout
+    android:id="@+id/dialog_licenses_layout"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    />
+    android:orientation="vertical"
+    android:padding="@dimen/padding_medium">
+
+    <TextView
+        android:id="@+id/dialog_licenses_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/padding_medium"
+        android:gravity="center"
+        android:text="@string/title_licenses"
+        android:textColor="@color/primary_text"
+        android:textSize="@dimen/text_medium"
+        />
+
+    <WebView
+        android:id="@+id/dialog_licenses_webview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        />
+
+    <ImageView
+        android:id="@+id/dialog_licenses_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/padding_medium"
+        android:gravity="center"
+        android:src="@drawable/ic_legal"
+        android:tint="@color/primary"
+        android:visibility="invisible"
+        tools:visibility="visible"
+        />
+
+</LinearLayout>

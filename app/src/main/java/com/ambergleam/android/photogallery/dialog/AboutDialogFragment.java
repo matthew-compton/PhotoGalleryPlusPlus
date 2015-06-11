@@ -20,10 +20,14 @@ public class AboutDialogFragment extends DialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.dialog_about, null);
-        return new AlertDialog.Builder(getActivity(), R.style.Theme_AppCompat_Light_Dialog_Alert)
-                .setTitle(getString(R.string.title_about))
+        view.setOnClickListener(v -> {
+            Dialog dialog = getDialog();
+            if (dialog != null) {
+                dialog.dismiss();
+            }
+        });
+        return new AlertDialog.Builder(getActivity(), R.style.BaseDialog)
                 .setView(view)
-                .setPositiveButton(android.R.string.ok, null)
                 .create();
     }
 
