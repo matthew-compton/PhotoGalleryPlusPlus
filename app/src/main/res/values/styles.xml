@@ -12,6 +12,11 @@
         <item name="android:windowBackground">@android:color/white</item>
     </style>
 
+    <!-- Toolbars -->
+    <style name="ToolbarTitle" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">@dimen/toolbar_title</item>
+    </style>
+
     <!-- Dialogs -->
     <style name="BaseDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="android:windowTitleStyle">@style/CenteredWindowTitle</item>

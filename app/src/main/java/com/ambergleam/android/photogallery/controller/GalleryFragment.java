@@ -21,8 +21,9 @@ import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 
-import com.ambergleam.android.photogallery.R;
+import com.ambergleam.android.photogallery.BaseActivity;
 import com.ambergleam.android.photogallery.BaseFragment;
+import com.ambergleam.android.photogallery.R;
 import com.ambergleam.android.photogallery.model.Photo;
 import com.ambergleam.android.photogallery.util.PreferenceUtils;
 import com.ambergleam.android.photogallery.web.FlickrFetchr;
@@ -78,9 +79,13 @@ public class GalleryFragment extends BaseFragment {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.fragment_gallery, menu);
 
-        MenuItem menuItem = menu.findItem(R.id.menu_item_gallery_search);
-        SearchView searchView = (SearchView) menuItem.getActionView();
+        MenuItem menuItemSearch = menu.findItem(R.id.menu_item_gallery_search);
+        SearchView searchView = (SearchView) menuItemSearch.getActionView();
+        searchView.setOnSearchClickListener(v -> {
+            ((BaseActivity) getActivity()).getSupportActionBar().setDisplayShowTitleEnabled(false);
+        });
         searchView.setOnCloseListener(() -> {
+            ((BaseActivity) getActivity()).getSupportActionBar().setDisplayShowTitleEnabled(true);
             PreferenceUtils.setSearchQuery(getActivity(), null);
             return false;
         });
