@@ -21,17 +21,17 @@ public class GalleryActivity extends BaseActivity {
     }
 
     @Override
-    protected boolean setupHomeButton() {
+    protected boolean setNavIconAsLogo() {
+        return true;
+    }
+
+    @Override
+    protected boolean setPostponeEnter() {
         return false;
     }
 
     @Override
-    protected boolean postponeEnter() {
-        return false;
-    }
-
-    @Override
-    protected boolean postponeReenter() {
+    protected boolean setPostponeReenter() {
         return false;
     }
 

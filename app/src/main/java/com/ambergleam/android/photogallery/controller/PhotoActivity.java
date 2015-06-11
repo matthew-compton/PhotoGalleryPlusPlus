@@ -16,17 +16,17 @@ public class PhotoActivity extends BaseActivity {
     }
 
     @Override
-    protected boolean setupHomeButton() {
+    protected boolean setNavIconAsLogo() {
+        return false;
+    }
+
+    @Override
+    protected boolean setPostponeEnter() {
         return true;
     }
 
     @Override
-    protected boolean postponeEnter() {
-        return true;
-    }
-
-    @Override
-    protected boolean postponeReenter() {
+    protected boolean setPostponeReenter() {
         return false;
     }
 

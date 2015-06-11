@@ -41,11 +41,11 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     protected abstract Fragment createFragment();
 
-    protected abstract boolean setupHomeButton();
+    protected abstract boolean setNavIconAsLogo();
 
-    protected abstract boolean postponeEnter();
+    protected abstract boolean setPostponeEnter();
 
-    protected abstract boolean postponeReenter();
+    protected abstract boolean setPostponeReenter();
 
     protected abstract boolean showsNetworkConnectionDialog();
 
@@ -81,8 +81,11 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     private void setupToolbar() {
         setSupportActionBar(mToolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(setupHomeButton());
-        getSupportActionBar().setHomeButtonEnabled(setupHomeButton());
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        if (setNavIconAsLogo()) {
+            mToolbar.setNavigationIcon(R.mipmap.ic_logo);
+        }
     }
 
     private void setupOverflowButton() {
@@ -161,7 +164,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     private void setupEnterTransition() {
-        if (postponeEnter() && AndroidUtils.IS_LOLLIPOP_AND_UP) {
+        if (setPostponeEnter() && AndroidUtils.IS_LOLLIPOP_AND_UP) {
             postponeEnterTransition();
         }
     }
@@ -170,7 +173,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     public void onActivityReenter(int resultCode, Intent data) {
         super.onActivityReenter(resultCode, data);
-        if (postponeReenter() && AndroidUtils.IS_LOLLIPOP_AND_UP) {
+        if (setPostponeReenter() && AndroidUtils.IS_LOLLIPOP_AND_UP) {
             postponeEnterTransition();
         }
     }

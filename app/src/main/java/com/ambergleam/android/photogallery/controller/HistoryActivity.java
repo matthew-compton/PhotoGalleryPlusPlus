@@ -12,17 +12,17 @@ public class HistoryActivity extends BaseActivity {
     }
 
     @Override
-    protected boolean setupHomeButton() {
-        return true;
-    }
-
-    @Override
-    protected boolean postponeEnter() {
+    protected boolean setNavIconAsLogo() {
         return false;
     }
 
     @Override
-    protected boolean postponeReenter() {
+    protected boolean setPostponeEnter() {
+        return false;
+    }
+
+    @Override
+    protected boolean setPostponeReenter() {
         return false;
     }
 

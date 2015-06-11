@@ -1,7 +1,7 @@
 <resources>
 
     <!-- General -->
-    <string name="app_name">Photo Gallery</string>
+    <string name="app_name">Gallery</string>
 
     <!-- Gallery -->
     <string name="title_gallery">Gallery</string>
