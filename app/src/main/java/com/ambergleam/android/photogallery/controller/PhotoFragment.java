@@ -18,15 +18,18 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.ambergleam.android.photogallery.R;
+import com.ambergleam.android.photogallery.base.BaseActivity;
 import com.ambergleam.android.photogallery.base.BaseFragment;
 import com.ambergleam.android.photogallery.model.Photo;
 import com.facebook.messenger.MessengerUtils;
 import com.facebook.messenger.ShareToMessengerParams;
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
+import timber.log.Timber;
 
 public class PhotoFragment extends BaseFragment {
 
@@ -69,7 +72,7 @@ public class PhotoFragment extends BaseFragment {
 
         MenuItem shareMenuItem = menu.findItem(R.id.menu_item_photo_share);
         ShareActionProvider shareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(shareMenuItem);
-        Uri uri = Uri.parse(mPhoto.getUrl());
+        Uri uri = Uri.parse(mPhoto.getSmallUrl());
 
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("image/plain");
@@ -91,9 +94,23 @@ public class PhotoFragment extends BaseFragment {
     }
 
     private void load() {
+        int size = mPhoto.getSmallestSide();
         Picasso.with(getActivity())
-                .load(mPhoto.getUrl())
-                .into(mImageView);
+                .load(mPhoto.getLargeUrl())
+                .resize(size, size)
+                .centerCrop()
+                .into(mImageView, new Callback() {
+                    @Override
+                    public void onSuccess() {
+                        ((BaseActivity) getActivity()).scheduleStartPostponedTransition(mImageView);
+                    }
+
+                    @Override
+                    public void onError() {
+                        Timber.e("Error loading image.");
+                        ((BaseActivity) getActivity()).scheduleStartPostponedTransition(mImageView);
+                    }
+                });
     }
 
     private void share() {

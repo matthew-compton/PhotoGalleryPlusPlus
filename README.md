@@ -53,8 +53,26 @@ MessengerUtils.shareToMessenger(getActivity(), REQUEST_CODE_SHARE_TO_MESSENGER, 
 ### Directions for Saving Recent Searches with Parse
 Go to the [Parse Application Portal](https://www.parse.com/apps), signup, and then add a new app.
 
+#### Step 1) Add Parse Dependency
+The top-level `build.gradle` file should have a section like this:
+```
+allprojects {
+    repositories {
+        jcenter()
+        maven {
+            url "https://jitpack.io"
+        }
+    }
+}
+```
 
-#### Step 1) Create Search Model Object
+While the app `build.gradle` should include these depencencies:
+```
+compile 'com.github.yongjhih:parse:1.9.2'
+compile 'com.parse.bolts:bolts-android:1.2.0'
+```
+
+#### Step 2) Create Search Model Object
 This class will represent a single search query that we want to save.
 
 ```
@@ -93,7 +111,7 @@ public class Search extends ParseObject {
 }
 ```
 
-#### Step 2) Setup Parse in Application
+#### Step 3) Setup Parse in Application
 ```
 public class PhotoGalleryApplication extends Application {
 
@@ -111,7 +129,7 @@ public class PhotoGalleryApplication extends Application {
 }
 ```
 
-#### Step 3) Use Parse
+#### Step 4) Use Parse
 Here are some basic operations to start with:
 
 ##### Save a Single Search

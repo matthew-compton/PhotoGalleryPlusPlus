@@ -29,7 +29,8 @@ public class FlickrFetchr {
     private static final String METHOD_SEARCH = "flickr.photos.search";
     private static final String PARAM_EXTRAS = "extras";
     private static final String PARAM_TEXT = "text";
-    private static final String EXTRA_SMALL_URL = "url_s";
+    private static final String EXTRA_SMALL_URL = "url_q";
+    private static final String EXTRA_LARGE_URL = "url_z";
     private static final String XML_PHOTO = "photo";
 
     public byte[] getUrlBytes(String urlSpec) throws IOException {
@@ -63,7 +64,7 @@ public class FlickrFetchr {
         String url = Uri.parse(ENDPOINT).buildUpon()
                 .appendQueryParameter("method", METHOD_GET_RECENT)
                 .appendQueryParameter("api_key", PhotoGalleryConstants.FLICKR_API_KEY)
-                .appendQueryParameter(PARAM_EXTRAS, EXTRA_SMALL_URL)
+                .appendQueryParameter(PARAM_EXTRAS, EXTRA_SMALL_URL + "," + EXTRA_LARGE_URL)
                 .build().toString();
         return downloadGalleryItems(url);
     }
@@ -72,7 +73,7 @@ public class FlickrFetchr {
         String url = Uri.parse(ENDPOINT).buildUpon()
                 .appendQueryParameter("method", METHOD_SEARCH)
                 .appendQueryParameter("api_key", PhotoGalleryConstants.FLICKR_API_KEY)
-                .appendQueryParameter(PARAM_EXTRAS, EXTRA_SMALL_URL)
+                .appendQueryParameter(PARAM_EXTRAS, EXTRA_SMALL_URL + "," + EXTRA_LARGE_URL)
                 .appendQueryParameter(PARAM_TEXT, query)
                 .build().toString();
         return downloadGalleryItems(url);
@@ -99,19 +100,33 @@ public class FlickrFetchr {
         int eventType = parser.next();
 
         while (eventType != XmlPullParser.END_DOCUMENT) {
-            if (eventType == XmlPullParser.START_TAG &&
-                    XML_PHOTO.equals(parser.getName())) {
+            if (eventType == XmlPullParser.START_TAG && XML_PHOTO.equals(parser.getName())) {
                 String id = parser.getAttributeValue(null, "id");
                 String caption = parser.getAttributeValue(null, "title");
                 String smallUrl = parser.getAttributeValue(null, EXTRA_SMALL_URL);
+                String largeUrl = parser.getAttributeValue(null, EXTRA_LARGE_URL);
+                String largeUrlWidth = parser.getAttributeValue(null, "width_z");
+                String largeUrlHeight = parser.getAttributeValue(null, "height_z");
                 String owner = parser.getAttributeValue(null, "owner");
 
-                Photo item = new Photo();
-                item.setId(id);
-                item.setCaption(caption);
-                item.setUrl(smallUrl);
-                item.setOwner(owner);
-                items.add(item);
+                if (id != null &&
+                        caption != null &&
+                        smallUrl != null &&
+                        largeUrl != null &&
+                        largeUrlWidth != null &&
+                        largeUrlHeight != null &&
+                        owner != null
+                        ) {
+                    Photo item = new Photo();
+                    item.setId(id);
+                    item.setCaption(caption);
+                    item.setSmallUrl(smallUrl);
+                    item.setLargeUrl(largeUrl);
+                    item.setLargeUrlWidth(Integer.parseInt(largeUrlWidth));
+                    item.setLargeUrlHeight(Integer.parseInt(largeUrlHeight));
+                    item.setOwner(owner);
+                    items.add(item);
+                }
             }
 
             eventType = parser.next();

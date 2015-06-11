@@ -1,6 +1,8 @@
 package com.ambergleam.android.photogallery.base;
 
+import android.annotation.TargetApi;
 import android.app.ActivityManager;
+import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
@@ -16,9 +18,12 @@ import android.support.v7.widget.Toolbar;
 import android.util.Base64;
 import android.util.TypedValue;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.ViewConfiguration;
+import android.view.ViewTreeObserver;
 
 import com.ambergleam.android.photogallery.R;
+import com.ambergleam.android.photogallery.util.AndroidUtils;
 
 import java.lang.reflect.Field;
 import java.security.MessageDigest;
@@ -36,6 +41,10 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     protected abstract boolean setupHomeButton();
 
+    protected abstract boolean postponeEnter();
+
+    protected abstract boolean postponeReenter();
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +56,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         setupOverflowButton();
         setupOverviewScreen();
         setupInitialFragment();
+        setupEnterTransition();
     }
 
     protected void setupToolbar() {
@@ -112,6 +122,35 @@ public abstract class BaseActivity extends AppCompatActivity {
         } catch (NoSuchAlgorithmException e) {
             Timber.d("KeyHash:", e.toString());
         }
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    private void setupEnterTransition() {
+        if (postponeEnter() && AndroidUtils.IS_LOLLIPOP_AND_UP) {
+            postponeEnterTransition();
+        }
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    @Override
+    public void onActivityReenter(int resultCode, Intent data) {
+        super.onActivityReenter(resultCode, data);
+        if (postponeReenter() && AndroidUtils.IS_LOLLIPOP_AND_UP) {
+            postponeEnterTransition();
+        }
+    }
+
+    public void scheduleStartPostponedTransition(final View sharedElement) {
+        sharedElement.getViewTreeObserver().addOnPreDrawListener(
+                new ViewTreeObserver.OnPreDrawListener() {
+                    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+                    @Override
+                    public boolean onPreDraw() {
+                        sharedElement.getViewTreeObserver().removeOnPreDrawListener(this);
+                        startPostponedEnterTransition();
+                        return true;
+                    }
+                });
     }
 
     @Override

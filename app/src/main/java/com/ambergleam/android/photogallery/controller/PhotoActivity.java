@@ -20,4 +20,14 @@ public class PhotoActivity extends BaseActivity {
         return true;
     }
 
+    @Override
+    protected boolean postponeEnter() {
+        return true;
+    }
+
+    @Override
+    protected boolean postponeReenter() {
+        return false;
+    }
+
 }

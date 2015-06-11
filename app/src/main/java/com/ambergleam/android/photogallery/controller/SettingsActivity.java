@@ -16,4 +16,14 @@ public class SettingsActivity extends BaseActivity {
         return true;
     }
 
+    @Override
+    protected boolean postponeEnter() {
+        return false;
+    }
+
+    @Override
+    protected boolean postponeReenter() {
+        return false;
+    }
+
 }

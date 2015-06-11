@@ -6,7 +6,10 @@ public class Photo implements Serializable {
 
     private String mCaption;
     private String mId;
-    private String mUrl;
+    private String mSmallUrl;
+    private String mLargeUrl;
+    private int mLargeUrlWidth;
+    private int mLargeUrlHeight;
     private String mOwner;
 
     public String getCaption() {
@@ -25,12 +28,40 @@ public class Photo implements Serializable {
         mId = id;
     }
 
-    public String getUrl() {
-        return mUrl;
+    public String getSmallUrl() {
+        return mSmallUrl;
     }
 
-    public void setUrl(String url) {
-        mUrl = url;
+    public void setSmallUrl(String smallUrl) {
+        mSmallUrl = smallUrl;
+    }
+
+    public String getLargeUrl() {
+        return mLargeUrl;
+    }
+
+    public void setLargeUrl(String largeUrl) {
+        mLargeUrl = largeUrl;
+    }
+
+    public int getLargeUrlWidth() {
+        return mLargeUrlWidth;
+    }
+
+    public void setLargeUrlWidth(int largeUrlWidth) {
+        mLargeUrlWidth = largeUrlWidth;
+    }
+
+    public int getLargeUrlHeight() {
+        return mLargeUrlHeight;
+    }
+
+    public void setLargeUrlHeight(int largeUrlHeight) {
+        mLargeUrlHeight = largeUrlHeight;
+    }
+
+    public int getSmallestSide() {
+        return mLargeUrlWidth > mLargeUrlHeight ? mLargeUrlHeight : mLargeUrlWidth;
     }
 
     public String getOwner() {

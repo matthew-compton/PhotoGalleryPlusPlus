@@ -22,6 +22,16 @@ public class GalleryActivity extends BaseActivity {
     }
 
     @Override
+    protected boolean postponeEnter() {
+        return false;
+    }
+
+    @Override
+    protected boolean postponeReenter() {
+        return false;
+    }
+
+    @Override
     public void onNewIntent(Intent intent) {
         GalleryFragment fragment = (GalleryFragment) getSupportFragmentManager().findFragmentById(R.id.activity_fragment_container);
         if (Intent.ACTION_SEARCH.equals(intent.getAction()) && fragment != null) {

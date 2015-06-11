@@ -181,8 +181,15 @@ public class GalleryFragment extends BaseFragment {
             ImageView imageView = (ImageView) convertView.findViewById(R.id.grid_item_gallery_image);
 
             Picasso.with(getActivity())
-                    .load(item.getUrl())
+                    .load(item.getSmallUrl())
                     .into(imageView);
+
+            int size = item.getSmallestSide();
+            Picasso.with(getActivity())
+                    .load(item.getLargeUrl())
+                    .resize(size, size)
+                    .centerCrop()
+                    .fetch();
 
             return convertView;
         }
