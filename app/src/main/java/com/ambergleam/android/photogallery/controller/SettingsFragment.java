@@ -41,12 +41,12 @@ public class SettingsFragment extends BaseFragment {
 
     private void displayLicensesDialogFragment() {
         LicensesDialogFragment dialog = LicensesDialogFragment.newInstance();
-        dialog.show(getChildFragmentManager(), LicensesDialogFragment.class.getSimpleName());
+        dialog.show(getFragmentManager(), LicensesDialogFragment.class.getSimpleName());
     }
 
     private void displayAboutDialogFragment() {
         AboutDialogFragment dialog = AboutDialogFragment.newInstance();
-        dialog.show(getChildFragmentManager(), AboutDialogFragment.class.getSimpleName());
+        dialog.show(getFragmentManager(), AboutDialogFragment.class.getSimpleName());
     }
 
     @OnClick(R.id.fragment_settings_notifications)
