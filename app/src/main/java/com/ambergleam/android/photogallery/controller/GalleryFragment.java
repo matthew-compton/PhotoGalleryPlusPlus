@@ -24,6 +24,7 @@ import android.widget.ImageView;
 import com.ambergleam.android.photogallery.BaseActivity;
 import com.ambergleam.android.photogallery.BaseFragment;
 import com.ambergleam.android.photogallery.R;
+import com.ambergleam.android.photogallery.manager.DataManager;
 import com.ambergleam.android.photogallery.model.Photo;
 import com.ambergleam.android.photogallery.util.PreferenceUtils;
 import com.ambergleam.android.photogallery.web.FlickrFetchr;
@@ -32,16 +33,21 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+import javax.inject.Inject;
+
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import timber.log.Timber;
 
 public class GalleryFragment extends BaseFragment {
 
-    private ArrayList<Photo> mPhotos;
+    @Inject DataManager mDataManager;
 
     @InjectView(R.id.fragment_gallery_refresh) SwipeRefreshLayout mSwipeRefreshLayout;
     @InjectView(R.id.fragment_gallery_grid) GridView mGridView;
+
+    private ArrayList<Photo> mPhotos;
+    private String mSearch;
 
     public static GalleryFragment newInstance() {
         return new GalleryFragment();
@@ -89,6 +95,14 @@ public class GalleryFragment extends BaseFragment {
             PreferenceUtils.setSearchQuery(getActivity(), null);
             return false;
         });
+
+        if (mSearch != null && mSearch != "") {
+            searchView.setIconified(false);
+            searchView.setQuery(mSearch, false);
+            searchView.clearFocus();
+        } else {
+            searchView.setIconified(true);
+        }
 
         SearchManager searchManager = (SearchManager) getActivity().getSystemService(Context.SEARCH_SERVICE);
         ComponentName name = getActivity().getComponentName();
@@ -139,20 +153,39 @@ public class GalleryFragment extends BaseFragment {
     }
 
     public void search() {
-        new SearchAsyncTask().execute();
+        mSearch = PreferenceUtils.getSearchQuery(getActivity());
+        search(mSearch);
     }
 
-    private class SearchAsyncTask extends AsyncTask<Void, Void, ArrayList<Photo>> {
+    public void search(String query) {
+        mSearch = query;
+        PreferenceUtils.setSearchQuery(getActivity(), mSearch);
+        mDataManager.saveSearch(mSearch);
+        new SearchAsyncTask(mSearch).execute();
+    }
+
+    private class SearchAsyncTask extends AsyncTask<String, Void, ArrayList<Photo>> {
+
+        private String mQuery;
+
+        public SearchAsyncTask(String query) {
+            Timber.i("Search Query: " + mQuery);
+            mQuery = query;
+        }
 
         @Override
-        protected ArrayList<Photo> doInBackground(Void... params) {
+        protected void onPreExecute() {
+            super.onPreExecute();
+            getActivity().invalidateOptionsMenu();
+        }
+
+        @Override
+        protected ArrayList<Photo> doInBackground(String... params) {
             if (getActivity() == null) {
                 return new ArrayList<>();
             }
-            String query = PreferenceUtils.getSearchQuery(getActivity());
-            Timber.i("Search Query: " + query);
-            if (query != null) {
-                return new FlickrFetchr().getPhotos(query);
+            if (mQuery != null) {
+                return new FlickrFetchr().getPhotos(mQuery);
             } else {
                 return new FlickrFetchr().getPhotos();
             }

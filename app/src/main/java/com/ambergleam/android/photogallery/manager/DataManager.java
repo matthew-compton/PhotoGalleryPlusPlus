@@ -26,7 +26,7 @@ public class DataManager {
     }
 
     public void saveSearch(String query) {
-        if (checkSearchQueryExists(query)) {
+        if (query == null || checkSearchQueryExists(query)) {
             return;
         }
 
