@@ -197,10 +197,6 @@ public class GalleryFragment extends BaseFragment {
         @Override
         protected void onPostExecute(ArrayList<Photo> items) {
             mPhotos = items;
-            if (items.size() > 0) {
-                String resultId = items.get(0).getId();
-                PreferenceUtils.setLastResultId(getActivity(), resultId);
-            }
             setupAdapter();
             mSwipeRefreshLayout.setRefreshing(false);
         }

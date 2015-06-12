@@ -11,7 +11,7 @@
         android:layout_gravity="center"
         android:layout_margin="@dimen/padding_small"
         android:gravity="center"
-        android:text="@string/connection_content"
+        android:text="@string/dialog_connection_content"
         android:textColor="@color/primary_text"
         android:textSize="@dimen/text_medium"
         />

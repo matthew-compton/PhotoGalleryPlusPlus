@@ -7,6 +7,13 @@ import com.ambergleam.android.photogallery.web.FlickrFetchr;
 
 public class PreferenceUtils {
 
+    public static void clear(Context context) {
+        PreferenceManager.getDefaultSharedPreferences(context)
+                .edit()
+                .clear()
+                .commit();
+    }
+
     public static String getSearchQuery(Context context) {
         return PreferenceManager.getDefaultSharedPreferences(context).getString(FlickrFetchr.PREF_SEARCH_QUERY, null);
     }
@@ -15,13 +22,6 @@ public class PreferenceUtils {
         PreferenceManager.getDefaultSharedPreferences(context)
                 .edit()
                 .putString(FlickrFetchr.PREF_SEARCH_QUERY, query)
-                .commit();
-    }
-
-    public static void setLastResultId(Context context, String id) {
-        PreferenceManager.getDefaultSharedPreferences(context)
-                .edit()
-                .putString(FlickrFetchr.PREF_LAST_RESULT_ID, id)
                 .commit();
     }
 

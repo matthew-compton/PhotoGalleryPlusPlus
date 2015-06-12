@@ -31,19 +31,19 @@
 
     <!-- Settings -->
     <string name="settings_title">Settings</string>
+    <string name="settings_menu_clear">Clear App Data</string>
     <string name="settings_notifications">Notifications</string>
     <string name="settings_licenses">Licenses</string>
     <string name="settings_about">About</string>
     <string name="settings_version">Version</string>
 
-    <!-- Licenses Dialog -->
-    <string name="licenses_title"><b>Open-Source Licenses</b></string>
-
-    <!-- About Dialog -->
-    <string name="about_content"><b>Photo Gallery</b>\n\nCopyright \u00A9 2015\nMatthew Compton\nAll Rights Reserved</string>
-
-    <!-- Connection Dialog-->
-    <string name="connection_content"><b>No Network Connection</b>\n\nPlease check your Internet connection.</string>
+    <!-- Dialogs -->
+    <string name="dialog_licenses_title"><b>Open-Source Licenses</b></string>
+    <string name="dialog_about_content"><b>Photo Gallery</b>\n\nCopyright \u00A9 2015\nMatthew Compton\nAll Rights Reserved</string>
+    <string name="dialog_clear_title">Clear All Data?</string>
+    <string name="dialog_clear_content">This will include all favorites, recent searches, and any preferences.</string>
+    <string name="dialog_clear_toast">App data cleared.</string>
+    <string name="dialog_connection_content"><b>No Network Connection</b>\n\nPlease check your Internet connection.</string>
 
     <!-- Polling -->
     <string name="polling_title">New Photo Gallery Pictures</string>

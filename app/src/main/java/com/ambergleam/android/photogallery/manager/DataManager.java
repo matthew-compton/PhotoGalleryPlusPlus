@@ -1,5 +1,7 @@
 package com.ambergleam.android.photogallery.manager;
 
+import android.content.Context;
+
 import com.ambergleam.android.photogallery.callbacks.ClearFavoritesCallback;
 import com.ambergleam.android.photogallery.callbacks.ClearSearchesCallback;
 import com.ambergleam.android.photogallery.callbacks.LoadFavoritesCallback;
@@ -7,6 +9,7 @@ import com.ambergleam.android.photogallery.callbacks.LoadSearchesCallback;
 import com.ambergleam.android.photogallery.model.Favorite;
 import com.ambergleam.android.photogallery.model.Photo;
 import com.ambergleam.android.photogallery.model.Search;
+import com.ambergleam.android.photogallery.util.PreferenceUtils;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
@@ -31,6 +34,13 @@ public class DataManager {
         ParseObject.registerSubclass(Favorite.class);
     }
 
+    public void clearAppData(Context context) {
+        PreferenceUtils.clear(context);
+        clearSearches();
+        clearFavorites();
+        Timber.i("Cleared app data.");
+    }
+
     public void saveSearch(String query) {
         if (query == null || checkSearchQueryExists(query)) {
             return;
@@ -40,18 +50,26 @@ public class DataManager {
         search.setUuidString();
         search.setText(query);
         search.pinInBackground(GROUP_NAME_SEARCH);
+        Timber.i("Saved search.");
     }
 
     public void loadSearches(final LoadSearchesCallback callback) {
         ParseQuery<Search> query = Search.getQuery();
         query.fromLocalDatastore();
         query.findInBackground((list, e) -> callback.onSearchesLoaded(list));
+        Timber.i("Loaded searches.");
     }
 
     public void clearSearches(final ClearSearchesCallback callback) {
         ParseObject.unpinAllInBackground(GROUP_NAME_SEARCH, e -> {
             callback.onSearchesCleared();
         });
+        Timber.i("Cleared searches.");
+    }
+
+    public void clearSearches() {
+        ParseObject.unpinAllInBackground(GROUP_NAME_SEARCH);
+        Timber.i("Cleared searches.");
     }
 
     public boolean checkSearchQueryExists(String text) {
@@ -112,6 +130,11 @@ public class DataManager {
         ParseObject.unpinAllInBackground(GROUP_NAME_FAVORITES, e -> {
             callback.onFavoritesCleared();
         });
+        Timber.i("Cleared favorites.");
+    }
+
+    public void clearFavorites() {
+        ParseObject.unpinAllInBackground(GROUP_NAME_FAVORITES);
         Timber.i("Cleared favorites.");
     }
 
