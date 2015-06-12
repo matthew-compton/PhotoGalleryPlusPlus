@@ -185,7 +185,9 @@ public abstract class BaseActivity extends AppCompatActivity {
                     @Override
                     public boolean onPreDraw() {
                         sharedElement.getViewTreeObserver().removeOnPreDrawListener(this);
-                        startPostponedEnterTransition();
+                        if (AndroidUtils.IS_LOLLIPOP_AND_UP) {
+                            startPostponedEnterTransition();
+                        }
                         return true;
                     }
                 });
