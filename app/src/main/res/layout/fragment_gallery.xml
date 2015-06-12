@@ -3,7 +3,9 @@
     android:id="@+id/fragment_gallery_refresh"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
 
     <GridView
         android:id="@+id/fragment_gallery_grid"

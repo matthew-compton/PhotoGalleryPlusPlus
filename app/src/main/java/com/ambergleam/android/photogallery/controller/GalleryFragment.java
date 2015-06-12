@@ -68,6 +68,18 @@ public class GalleryFragment extends BaseFragment {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        mSwipeRefreshLayout.requestFocus();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        mSwipeRefreshLayout.requestFocus();
+    }
+
+    @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.menu_gallery, menu);
