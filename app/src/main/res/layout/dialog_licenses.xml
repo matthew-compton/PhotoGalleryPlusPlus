@@ -15,7 +15,7 @@
         android:layout_gravity="center"
         android:layout_marginBottom="@dimen/padding_medium"
         android:gravity="center"
-        android:text="@string/title_licenses"
+        android:text="@string/licenses_title"
         android:textColor="@color/primary_text"
         android:textSize="@dimen/text_medium"
         />

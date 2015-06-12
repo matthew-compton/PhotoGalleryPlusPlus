@@ -4,22 +4,29 @@
     <item
         android:id="@+id/menu_item_gallery_search"
         android:icon="@drawable/ic_search"
-        android:title="@string/menu_search"
+        android:title="@string/gallery_menu_search"
         app:actionViewClass="android.support.v7.widget.SearchView"
         app:showAsAction="always"
         />
 
     <item
+        android:id="@+id/menu_item_gallery_favorites"
+        android:icon="@drawable/ic_favorites"
+        android:title="@string/gallery_menu_favorites"
+        app:showAsAction="never"
+        />
+
+    <item
         android:id="@+id/menu_item_gallery_history"
         android:icon="@drawable/ic_history"
-        android:title="@string/menu_history"
+        android:title="@string/gallery_menu_history"
         app:showAsAction="never"
         />
 
     <item
         android:id="@+id/menu_item_gallery_settings"
         android:icon="@drawable/ic_settings"
-        android:title="@string/menu_settings"
+        android:title="@string/gallery_menu_settings"
         app:showAsAction="never"
         />
 

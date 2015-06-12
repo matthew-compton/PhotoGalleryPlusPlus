@@ -20,11 +20,14 @@ import android.widget.ImageView;
 import com.ambergleam.android.photogallery.R;
 import com.ambergleam.android.photogallery.BaseActivity;
 import com.ambergleam.android.photogallery.BaseFragment;
+import com.ambergleam.android.photogallery.manager.DataManager;
 import com.ambergleam.android.photogallery.model.Photo;
 import com.facebook.messenger.MessengerUtils;
 import com.facebook.messenger.ShareToMessengerParams;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
+
+import javax.inject.Inject;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -34,12 +37,14 @@ import timber.log.Timber;
 public class PhotoFragment extends BaseFragment {
 
     private static final int REQUEST_CODE_SHARE_TO_MESSENGER = 0;
-
     public static final String ARGS_PHOTO = "ARGS_PHOTO";
+
+    @Inject DataManager mDataManager;
 
     @InjectView(R.id.fragment_photo_image) ImageView mImageView;
 
     private Photo mPhoto;
+    private boolean mIsFavorite;
 
     public static PhotoFragment newInstance(Photo photo) {
         Bundle args = new Bundle();
@@ -55,6 +60,7 @@ public class PhotoFragment extends BaseFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mPhoto = (Photo) getArguments().getSerializable(ARGS_PHOTO);
+        mIsFavorite = mDataManager.isFavorite(mPhoto);
     }
 
     @Override
@@ -68,7 +74,7 @@ public class PhotoFragment extends BaseFragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.fragment_photo, menu);
+        inflater.inflate(R.menu.menu_photo, menu);
 
         MenuItem shareMenuItem = menu.findItem(R.id.menu_item_photo_share);
         ShareActionProvider shareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(shareMenuItem);
@@ -81,12 +87,31 @@ public class PhotoFragment extends BaseFragment {
     }
 
     @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        super.onPrepareOptionsMenu(menu);
+        MenuItem menuItemFavorite = menu.findItem(R.id.menu_item_photo_favorite);
+        MenuItem menuItemUnfavorite = menu.findItem(R.id.menu_item_photo_unfavorite);
+        menuItemFavorite.setVisible(!mIsFavorite);
+        menuItemUnfavorite.setVisible(mIsFavorite);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_item_photo_web:
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setData(Uri.parse(mPhoto.getPhotoPageUrl()));
                 startActivity(intent);
+                return true;
+            case R.id.menu_item_photo_favorite:
+                mDataManager.addFavorite(mPhoto);
+                mIsFavorite = true;
+                getActivity().invalidateOptionsMenu();
+                return true;
+            case R.id.menu_item_photo_unfavorite:
+                mDataManager.removeFavorite(mPhoto);
+                mIsFavorite = false;
+                getActivity().invalidateOptionsMenu();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

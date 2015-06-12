@@ -68,10 +68,10 @@ public class PollService extends IntentService {
                     .getActivity(this, 0, new Intent(this, GalleryActivity.class), 0);
 
             Notification notification = new NotificationCompat.Builder(this)
-                    .setTicker(r.getString(R.string.new_pictures_title))
+                    .setTicker(r.getString(R.string.polling_title))
                     .setSmallIcon(android.R.drawable.ic_menu_report_image)
-                    .setContentTitle(r.getString(R.string.new_pictures_title))
-                    .setContentText(r.getString(R.string.new_pictures_text))
+                    .setContentTitle(r.getString(R.string.polling_title))
+                    .setContentText(r.getString(R.string.polling_text))
                     .setContentIntent(pi)
                     .setAutoCancel(true)
                     .build();

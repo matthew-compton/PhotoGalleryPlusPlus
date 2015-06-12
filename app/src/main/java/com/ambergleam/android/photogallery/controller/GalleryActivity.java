@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 
 import com.ambergleam.android.photogallery.BaseActivity;
 import com.ambergleam.android.photogallery.R;
+import com.facebook.appevents.AppEventsLogger;
 
 public class GalleryActivity extends BaseActivity {
 
@@ -40,6 +41,18 @@ public class GalleryActivity extends BaseActivity {
         if (Intent.ACTION_SEARCH.equals(intent.getAction()) && fragment != null) {
             fragment.search(intent.getStringExtra(SearchManager.QUERY));
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        AppEventsLogger.activateApp(this);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        AppEventsLogger.deactivateApp(this);
     }
 
 }

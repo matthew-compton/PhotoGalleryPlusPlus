@@ -59,7 +59,7 @@ public class HistoryFragment extends BaseFragment implements LoadSearchesCallbac
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.fragment_history, menu);
+        inflater.inflate(R.menu.menu_history, menu);
     }
 
     @Override
@@ -73,6 +73,13 @@ public class HistoryFragment extends BaseFragment implements LoadSearchesCallbac
         }
     }
 
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        super.onPrepareOptionsMenu(menu);
+        MenuItem menuItemClear = menu.findItem(R.id.menu_item_history_clear);
+        menuItemClear.setVisible(!mAdapter.isEmpty());
+    }
+
     private void setupUI() {
         mAdapter = new SearchAdapter(new ArrayList<>());
         mRecyclerView.setAdapter(mAdapter);
@@ -81,13 +88,14 @@ public class HistoryFragment extends BaseFragment implements LoadSearchesCallbac
     }
 
     private void updateUI() {
-        if (mAdapter.getItemCount() == 0) {
+        if (mAdapter.isEmpty()) {
             mRecyclerView.setVisibility(View.GONE);
             mEmptyView.setVisibility(View.VISIBLE);
         } else {
             mRecyclerView.setVisibility(View.VISIBLE);
             mEmptyView.setVisibility(View.GONE);
         }
+        getActivity().invalidateOptionsMenu();
     }
 
     private void search(Search search) {
@@ -162,6 +170,10 @@ public class HistoryFragment extends BaseFragment implements LoadSearchesCallbac
         @Override
         public int getItemCount() {
             return mSearchList.size();
+        }
+
+        public boolean isEmpty() {
+            return getItemCount() == 0;
         }
 
         public void setList(List<Search> searchList) {

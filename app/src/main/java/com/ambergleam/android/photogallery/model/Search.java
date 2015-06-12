@@ -9,8 +9,8 @@ import java.util.UUID;
 @ParseClassName("Search")
 public class Search extends ParseObject {
 
-    public static final String SEARCH_UUID = "uuid";
-    public static final String SEARCH_TEXT = "text";
+    public static final String SEARCH_UUID = "search_uuid";
+    public static final String SEARCH_TEXT = "search_text";
 
     public String getText() {
         return getString(SEARCH_TEXT);

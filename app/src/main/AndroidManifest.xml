@@ -27,7 +27,7 @@
 
         <activity
             android:name="com.ambergleam.android.photogallery.controller.GalleryActivity"
-            android:label="@string/title_gallery"
+            android:label="@string/gallery_title"
             android:launchMode="singleTop">
 
             <intent-filter>
@@ -47,17 +47,22 @@
 
         <activity
             android:name="com.ambergleam.android.photogallery.controller.PhotoActivity"
-            android:label="@string/title_photo"
+            android:label="@string/photo_title"
+            />
+
+        <activity
+            android:name="com.ambergleam.android.photogallery.controller.FavoritesActivity"
+            android:label="@string/favorites_title"
             />
 
         <activity
             android:name="com.ambergleam.android.photogallery.controller.HistoryActivity"
-            android:label="@string/title_history"
+            android:label="@string/history_title"
             />
 
         <activity
             android:name="com.ambergleam.android.photogallery.controller.SettingsActivity"
-            android:label="@string/title_settings"
+            android:label="@string/settings_title"
             />
 
         <service android:name="com.ambergleam.android.photogallery.controller.PollService"/>

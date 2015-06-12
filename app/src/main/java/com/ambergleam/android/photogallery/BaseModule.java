@@ -1,5 +1,7 @@
 package com.ambergleam.android.photogallery;
 
+import com.ambergleam.android.photogallery.controller.FavoritesActivity;
+import com.ambergleam.android.photogallery.controller.FavoritesFragment;
 import com.ambergleam.android.photogallery.controller.GalleryActivity;
 import com.ambergleam.android.photogallery.controller.GalleryFragment;
 import com.ambergleam.android.photogallery.controller.HistoryActivity;
@@ -25,6 +27,8 @@ import dagger.Provides;
                 GalleryFragment.class,
                 PhotoActivity.class,
                 PhotoFragment.class,
+                FavoritesActivity.class,
+                FavoritesFragment.class,
                 HistoryActivity.class,
                 HistoryFragment.class,
                 SettingsActivity.class,

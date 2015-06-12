@@ -28,7 +28,6 @@ import com.ambergleam.android.photogallery.manager.DataManager;
 import com.ambergleam.android.photogallery.model.Photo;
 import com.ambergleam.android.photogallery.util.PreferenceUtils;
 import com.ambergleam.android.photogallery.web.FlickrFetchr;
-import com.facebook.appevents.AppEventsLogger;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -69,21 +68,9 @@ public class GalleryFragment extends BaseFragment {
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
-        AppEventsLogger.activateApp(getActivity());
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        AppEventsLogger.deactivateApp(getActivity());
-    }
-
-    @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.fragment_gallery, menu);
+        inflater.inflate(R.menu.menu_gallery, menu);
 
         MenuItem menuItemSearch = menu.findItem(R.id.menu_item_gallery_search);
         SearchView searchView = (SearchView) menuItemSearch.getActionView();
@@ -113,6 +100,10 @@ public class GalleryFragment extends BaseFragment {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.menu_item_gallery_favorites:
+                Intent intentFavorites = new Intent(getActivity(), FavoritesActivity.class);
+                startActivity(intentFavorites);
+                return true;
             case R.id.menu_item_gallery_history:
                 Intent intentHistory = new Intent(getActivity(), HistoryActivity.class);
                 startActivity(intentHistory);
