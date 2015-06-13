@@ -6,7 +6,7 @@ android {
     buildToolsVersion "22.0.1"
 
     defaultConfig {
-        applicationId "com.ambergleam.android.photogallery"
+        applicationId "com.ambergleam.gallery"
         minSdkVersion 15
         targetSdkVersion 22
         versionCode 2
