@@ -31,15 +31,15 @@ import java.util.List;
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.Bind;
 
 public class FavoritesFragment extends BaseFragment implements LoadFavoritesCallback, ClearFavoritesCallback {
 
     @Inject DataManager mDataManager;
 
-    @InjectView(R.id.fragment_favorites_refresh) SwipeRefreshLayout mSwipeRefreshLayout;
-    @InjectView(R.id.fragment_favorites_grid) GridView mGridView;
-    @InjectView(R.id.fragment_favorites_empty) TextView mEmptyView;
+    @Bind(R.id.fragment_favorites_refresh) SwipeRefreshLayout mSwipeRefreshLayout;
+    @Bind(R.id.fragment_favorites_grid) GridView mGridView;
+    @Bind(R.id.fragment_favorites_empty) TextView mEmptyView;
 
     private ArrayList<Photo> mPhotos;
 
@@ -56,7 +56,7 @@ public class FavoritesFragment extends BaseFragment implements LoadFavoritesCall
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_favorites, container, false);
-        ButterKnife.inject(this, view);
+        ButterKnife.bind(this, view);
         setupAdapter();
         setupListeners();
         return view;

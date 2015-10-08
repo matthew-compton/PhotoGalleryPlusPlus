@@ -35,15 +35,15 @@ import java.util.ArrayList;
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.Bind;
 import timber.log.Timber;
 
 public class GalleryFragment extends BaseFragment {
 
     @Inject DataManager mDataManager;
 
-    @InjectView(R.id.fragment_gallery_refresh) SwipeRefreshLayout mSwipeRefreshLayout;
-    @InjectView(R.id.fragment_gallery_grid) GridView mGridView;
+    @Bind(R.id.fragment_gallery_refresh) SwipeRefreshLayout mSwipeRefreshLayout;
+    @Bind(R.id.fragment_gallery_grid) GridView mGridView;
 
     private ArrayList<Photo> mPhotos;
     private String mSearch;
@@ -61,7 +61,7 @@ public class GalleryFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_gallery, container, false);
-        ButterKnife.inject(this, view);
+        ButterKnife.bind(this, view);
         setupAdapter();
         setupListeners();
         return view;

@@ -29,13 +29,14 @@ import com.ambergleam.android.photogallery.util.InjectionUtils;
 
 import java.lang.reflect.Field;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.Bind;
 import timber.log.Timber;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
-    @InjectView(R.id.activity_fragment_toolbar) public Toolbar mToolbar;
+    @Bind(R.id.activity_fragment_toolbar) public Toolbar mToolbar;
 
     private BroadcastReceiver mConnectionUpdateReceiver;
 
@@ -76,7 +77,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     private void setupInjection() {
         InjectionUtils.inject(this);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
     }
 
     private void setupToolbar() {

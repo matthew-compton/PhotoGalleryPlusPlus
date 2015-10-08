@@ -27,14 +27,14 @@ import java.util.List;
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.Bind;
 
 public class HistoryFragment extends BaseFragment implements LoadSearchesCallback, ClearSearchesCallback {
 
     @Inject DataManager mDataManager;
 
-    @InjectView(R.id.fragment_history_empty) TextView mEmptyView;
-    @InjectView(R.id.fragment_history_recycler) RecyclerView mRecyclerView;
+    @Bind(R.id.fragment_history_empty) TextView mEmptyView;
+    @Bind(R.id.fragment_history_recycler) RecyclerView mRecyclerView;
 
     private SearchAdapter mAdapter;
 
@@ -45,7 +45,7 @@ public class HistoryFragment extends BaseFragment implements LoadSearchesCallbac
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_history, parent, false);
-        ButterKnife.inject(this, view);
+        ButterKnife.bind(this, view);
         setupUI();
         return view;
     }
@@ -124,13 +124,13 @@ public class HistoryFragment extends BaseFragment implements LoadSearchesCallbac
 
     public class SearchHolder extends RecyclerView.ViewHolder {
 
-        @InjectView(R.id.list_item_search_text) TextView mTextView;
+        @Bind(R.id.list_item_search_text) TextView mTextView;
 
         private Search mSearch;
 
         public SearchHolder(View view) {
             super(view);
-            ButterKnife.inject(this, view);
+            ButterKnife.bind(this, view);
             setupListeners(view);
         }
 

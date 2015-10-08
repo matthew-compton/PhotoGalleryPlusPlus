@@ -24,7 +24,7 @@ import com.ambergleam.android.photogallery.manager.DataManager;
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.Bind;
 import butterknife.OnClick;
 
 public class SettingsFragment extends BaseFragment {
@@ -33,8 +33,8 @@ public class SettingsFragment extends BaseFragment {
 
     @Inject DataManager mDataManager;
 
-    @InjectView(R.id.fragment_settings_notifications_switch) Switch mNotificationSwitch;
-    @InjectView(R.id.fragment_settings_version_text) TextView mVersionTextView;
+    @Bind(R.id.fragment_settings_notifications_switch) Switch mNotificationSwitch;
+    @Bind(R.id.fragment_settings_version_text) TextView mVersionTextView;
 
     public static SettingsFragment newInstance() {
         return new SettingsFragment();
@@ -43,7 +43,7 @@ public class SettingsFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_settings, parent, false);
-        ButterKnife.inject(this, view);
+        ButterKnife.bind(this, view);
         updateUI();
         return view;
     }
