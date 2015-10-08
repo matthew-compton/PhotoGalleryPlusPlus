@@ -80,7 +80,7 @@ public class FlickrFetchr {
     }
 
     private ArrayList<Photo> downloadGalleryItems(String url) {
-        ArrayList<Photo> items = new ArrayList<Photo>();
+        ArrayList<Photo> items = new ArrayList<>();
         try {
             String xmlString = getUrl(url);
             Timber.i("Received xml: " + xmlString);

@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.content.LocalBroadcastManager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
@@ -81,8 +82,11 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     private void setupToolbar() {
         setSupportActionBar(mToolbar);
-        getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setHomeButtonEnabled(true);
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
         if (setNavIconAsLogo()) {
             mToolbar.setNavigationIcon(R.mipmap.ic_logo);
         }
@@ -96,9 +100,7 @@ public abstract class BaseActivity extends AppCompatActivity {
                 menuKeyField.setAccessible(true);
                 menuKeyField.setBoolean(config, false);
             }
-        } catch (NoSuchFieldException e) {
-            Timber.e("Error with displaying overflow menu.", e);
-        } catch (IllegalAccessException e) {
+        } catch (Exception e) {
             Timber.e("Error with displaying overflow menu.", e);
         }
     }

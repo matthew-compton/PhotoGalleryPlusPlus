@@ -140,9 +140,7 @@ public class HistoryFragment extends BaseFragment implements LoadSearchesCallbac
         }
 
         private void setupListeners(View view) {
-            view.setOnClickListener(v -> {
-                search(mSearch);
-            });
+            view.setOnClickListener(v -> search(mSearch));
         }
 
     }
