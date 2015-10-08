@@ -31,7 +31,6 @@ import java.lang.reflect.Field;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.Bind;
 import timber.log.Timber;
 
 public abstract class BaseActivity extends AppCompatActivity {

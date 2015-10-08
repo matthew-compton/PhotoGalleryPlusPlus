@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -87,15 +88,21 @@ public class GalleryFragment extends BaseFragment {
         MenuItem menuItemSearch = menu.findItem(R.id.menu_item_gallery_search);
         SearchView searchView = (SearchView) menuItemSearch.getActionView();
         searchView.setOnSearchClickListener(v -> {
-            ((BaseActivity) getActivity()).getSupportActionBar().setDisplayShowTitleEnabled(false);
+            ActionBar actionBar = ((BaseActivity) getActivity()).getSupportActionBar();
+            if (actionBar != null) {
+                actionBar.setDisplayShowTitleEnabled(false);
+            }
         });
         searchView.setOnCloseListener(() -> {
-            ((BaseActivity) getActivity()).getSupportActionBar().setDisplayShowTitleEnabled(true);
+            ActionBar actionBar = ((BaseActivity) getActivity()).getSupportActionBar();
+            if (actionBar != null) {
+                actionBar.setDisplayShowTitleEnabled(true);
+            }
             PreferenceUtils.setSearchQuery(getActivity(), null);
             return false;
         });
 
-        if (mSearch != null && mSearch != "") {
+        if (mSearch != null && !mSearch.isEmpty()) {
             searchView.setIconified(false);
             searchView.setQuery(mSearch, false);
             searchView.clearFocus();
