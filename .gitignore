@@ -8,3 +8,4 @@ app/build/
 # Local configuration files
 .idea/
 local.properties
+*.iml

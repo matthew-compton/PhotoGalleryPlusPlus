@@ -44,7 +44,7 @@ public class FlickrFetchr {
                 return null;
             }
 
-            int bytesRead = 0;
+            int bytesRead;
             byte[] buffer = new byte[1024];
             while ((bytesRead = in.read(buffer)) > 0) {
                 out.write(buffer, 0, bytesRead);
@@ -80,7 +80,7 @@ public class FlickrFetchr {
     }
 
     private ArrayList<Photo> downloadGalleryItems(String url) {
-        ArrayList<Photo> items = new ArrayList<Photo>();
+        ArrayList<Photo> items = new ArrayList<>();
         try {
             String xmlString = getUrl(url);
             Timber.i("Received xml: " + xmlString);

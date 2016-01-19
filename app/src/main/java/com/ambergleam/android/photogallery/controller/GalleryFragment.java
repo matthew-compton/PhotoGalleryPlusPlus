@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -35,15 +36,15 @@ import java.util.ArrayList;
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.Bind;
 import timber.log.Timber;
 
 public class GalleryFragment extends BaseFragment {
 
     @Inject DataManager mDataManager;
 
-    @InjectView(R.id.fragment_gallery_refresh) SwipeRefreshLayout mSwipeRefreshLayout;
-    @InjectView(R.id.fragment_gallery_grid) GridView mGridView;
+    @Bind(R.id.fragment_gallery_refresh) SwipeRefreshLayout mSwipeRefreshLayout;
+    @Bind(R.id.fragment_gallery_grid) GridView mGridView;
 
     private ArrayList<Photo> mPhotos;
     private String mSearch;
@@ -61,7 +62,7 @@ public class GalleryFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_gallery, container, false);
-        ButterKnife.inject(this, view);
+        ButterKnife.bind(this, view);
         setupAdapter();
         setupListeners();
         return view;
@@ -87,15 +88,21 @@ public class GalleryFragment extends BaseFragment {
         MenuItem menuItemSearch = menu.findItem(R.id.menu_item_gallery_search);
         SearchView searchView = (SearchView) menuItemSearch.getActionView();
         searchView.setOnSearchClickListener(v -> {
-            ((BaseActivity) getActivity()).getSupportActionBar().setDisplayShowTitleEnabled(false);
+            ActionBar actionBar = ((BaseActivity) getActivity()).getSupportActionBar();
+            if (actionBar != null) {
+                actionBar.setDisplayShowTitleEnabled(false);
+            }
         });
         searchView.setOnCloseListener(() -> {
-            ((BaseActivity) getActivity()).getSupportActionBar().setDisplayShowTitleEnabled(true);
+            ActionBar actionBar = ((BaseActivity) getActivity()).getSupportActionBar();
+            if (actionBar != null) {
+                actionBar.setDisplayShowTitleEnabled(true);
+            }
             PreferenceUtils.setSearchQuery(getActivity(), null);
             return false;
         });
 
-        if (mSearch != null && mSearch != "") {
+        if (mSearch != null && !mSearch.isEmpty()) {
             searchView.setIconified(false);
             searchView.setQuery(mSearch, false);
             searchView.clearFocus();
@@ -151,7 +158,7 @@ public class GalleryFragment extends BaseFragment {
             );
             ActivityCompat.startActivity(getActivity(), intent, options.toBundle());
         });
-        mSwipeRefreshLayout.setOnRefreshListener(() -> search());
+        mSwipeRefreshLayout.setOnRefreshListener(this::search);
         mSwipeRefreshLayout.setColorSchemeResources(R.color.primary, R.color.accent);
     }
 

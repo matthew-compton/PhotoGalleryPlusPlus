@@ -5,6 +5,7 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -21,10 +22,7 @@ public class ConnectionUtils {
     public static boolean isNetworkAvailable(Context context) {
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo netInfo = cm.getActiveNetworkInfo();
-        if (netInfo != null && netInfo.isConnectedOrConnecting()) {
-            return true;
-        }
-        return false;
+        return netInfo != null && netInfo.isConnectedOrConnecting();
     }
 
     public static void checkForConnection(final BaseActivity activity) {
@@ -35,10 +33,10 @@ public class ConnectionUtils {
         }
     }
 
-    public static void showNoConnectionDialog(final BaseActivity activity) {
+    public static void showNoConnectionDialog(@NonNull final BaseActivity activity) {
         int delay = activity.getResources().getInteger(R.integer.connection_check_delay_ms);
         new Handler().postDelayed(() -> {
-            if (activity == null || activity.getSupportFragmentManager() == null) {
+            if (activity.getSupportFragmentManager() == null) {
                 return;
             }
             if (!activity.hasWindowFocus()) {

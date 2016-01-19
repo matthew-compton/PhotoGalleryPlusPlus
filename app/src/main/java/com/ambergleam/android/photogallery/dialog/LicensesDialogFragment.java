@@ -16,13 +16,13 @@ import com.ambergleam.android.photogallery.BaseConstants;
 import com.ambergleam.android.photogallery.R;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.Bind;
 import butterknife.OnClick;
 
 public class LicensesDialogFragment extends DialogFragment {
 
-    @InjectView(R.id.dialog_licenses_webview) WebView mWebView;
-    @InjectView(R.id.dialog_licenses_image) ImageView mImageView;
+    @Bind(R.id.dialog_licenses_webview) WebView mWebView;
+    @Bind(R.id.dialog_licenses_image) ImageView mImageView;
 
     public static LicensesDialogFragment newInstance() {
         return new LicensesDialogFragment();
@@ -32,7 +32,7 @@ public class LicensesDialogFragment extends DialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.dialog_licenses, null);
-        ButterKnife.inject(this, view);
+        ButterKnife.bind(this, view);
 
         mWebView.loadUrl(BaseConstants.FILE_ANDROID_ASSET_OPEN_SOURCE_LICENSES_HTML);
         mWebView.setWebViewClient(new WebViewClient() {

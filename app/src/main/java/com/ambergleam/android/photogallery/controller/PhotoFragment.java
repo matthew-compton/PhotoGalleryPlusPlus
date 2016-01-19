@@ -30,7 +30,7 @@ import com.squareup.picasso.Picasso;
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.Bind;
 import butterknife.OnClick;
 import timber.log.Timber;
 
@@ -41,7 +41,7 @@ public class PhotoFragment extends BaseFragment {
 
     @Inject DataManager mDataManager;
 
-    @InjectView(R.id.fragment_photo_image) ImageView mImageView;
+    @Bind(R.id.fragment_photo_image) ImageView mImageView;
 
     private Photo mPhoto;
     private boolean mIsFavorite;
@@ -66,7 +66,7 @@ public class PhotoFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_photo, parent, false);
-        ButterKnife.inject(this, view);
+        ButterKnife.bind(this, view);
         load();
         return view;
     }
